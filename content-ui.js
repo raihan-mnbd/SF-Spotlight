@@ -10412,7 +10412,7 @@ function multiSampleData(o, t) {
       "Objects",
     ),
   );
-  
+
   const b = Xe("input", {
     width: "100%",
     boxSizing: "border-box",
@@ -10427,13 +10427,13 @@ function multiSampleData(o, t) {
   });
   b.placeholder = "Select objects (e.g. Account, Contact)";
   b.setAttribute("list", "multi-sample-obj-list");
-  
+
   const N = Xe("datalist");
   N.id = "multi-sample-obj-list";
-  
+
   u.appendChild(b);
   u.appendChild(N);
-  
+
   const pillContainer = Xe("div", {
     display: "flex",
     flexWrap: "wrap",
@@ -10442,10 +10442,10 @@ function multiSampleData(o, t) {
   });
   u.appendChild(pillContainer);
   E.appendChild(u);
-  
+
   const selectedObjects = new Set();
   const availableObjects = new Set();
-  
+
   function renderPills() {
     pillContainer.innerHTML = "";
     selectedObjects.forEach(objName => {
@@ -10534,7 +10534,7 @@ function multiSampleData(o, t) {
       ),
     ),
     optionalsDiv.appendChild(O));
-    
+
   const L = Xe(
     "button",
     {
@@ -10552,7 +10552,7 @@ function multiSampleData(o, t) {
     "⚡ Generate previews",
   );
   (optionalsDiv.appendChild(L), d.appendChild(optionalsDiv));
-  
+
   const D = Xe("div", {});
   d.appendChild(D);
   const U = Xe("div", { marginTop: "14px" });
@@ -10640,10 +10640,10 @@ function multiSampleData(o, t) {
         padding: "20px",
         boxShadow: "0 10px 40px rgba(0,0,0,0.35)",
       });
-    
+
     let totalCount = 0;
     Object.keys(generatedData).forEach(k => totalCount += generatedData[k].length);
-    
+
     (j.appendChild(
       Xe(
         "div",
@@ -10745,14 +10745,14 @@ function multiSampleData(o, t) {
       (generatedData = {}),
       (objectFields = {}),
       (insertedIds = {}));
-      
+
     const previewsContainer = Xe("div", { display: "flex", flexDirection: "column", gap: "16px" });
     D.appendChild(previewsContainer);
-    
+
     for (const objName of selectedObjects) {
       const objTitle = Xe("div", { fontWeight: "700", fontSize: "14px", marginTop: "10px" }, `Analyzing ${objName}...`);
       previewsContainer.appendChild(objTitle);
-      
+
       const j = await t.describeObject(objName);
       if (j.error || !j.fields) {
         objTitle.textContent = `❌ ${objName}: ${j.error || "Could not describe this object."}`;
@@ -10764,14 +10764,14 @@ function multiSampleData(o, t) {
         objTitle.style.color = n.danger;
         continue;
       }
-      
+
       objectFields[objName] = j.fields;
       const q = x.checked,
         P = j.fields.filter(
           (w) => pa(w) && !w.defaultedOnCreate && (ei(w) || (q && w.nillable)),
         ),
         ee = P.filter((w) => w.type === "reference");
-        
+
       objTitle.textContent = `Resolving lookups for ${objName}...`;
       const { ctx: G, missing: T } = await be(ee);
       if (T.length) {
@@ -10797,7 +10797,7 @@ function multiSampleData(o, t) {
         objTitle.appendChild(w);
         continue;
       }
-      
+
       const records = [];
       for (let w = 0; w < K; w++) {
         const H = { attributes: { type: objName } };
@@ -10807,16 +10807,16 @@ function multiSampleData(o, t) {
         });
         records.push(H);
       }
-      
+
       generatedData[objName] = records;
-      
+
       objTitle.innerHTML = "";
       const objSection = Xe("div", {
         border: `1px solid ${n.border}`,
         borderRadius: "12px",
         overflow: "hidden",
       });
-      
+
       const objHeader = Xe("div", {
         display: "flex",
         alignItems: "center",
@@ -10826,11 +10826,11 @@ function multiSampleData(o, t) {
         background: n.headerBg,
         borderBottom: `1px solid ${n.border}`,
       });
-      
+
       objHeader.appendChild(
         Xe("span", { fontSize: "13px", fontWeight: "700" }, `🧪 ${objName} (${records.length} records ready)`)
       );
-      
+
       const toggleBtn = Xe("button", {
         background: "transparent",
         border: `1px solid ${n.border}`,
@@ -10842,10 +10842,10 @@ function multiSampleData(o, t) {
         fontWeight: "600",
         fontFamily: "inherit",
       }, "Show Preview");
-      
+
       objHeader.appendChild(toggleBtn);
       objSection.appendChild(objHeader);
-      
+
       const previewTableContainer = Xe("div", { display: "none" });
       const T_table = Xe("table", {
         width: "100%",
@@ -10853,7 +10853,7 @@ function multiSampleData(o, t) {
         fontSize: "12.5px",
         tableLayout: "fixed",
       });
-      
+
       const firstRecord = records[0] || {};
       P.forEach((Q, S) => {
         const Y = Xe("tr", {
@@ -10873,7 +10873,7 @@ function multiSampleData(o, t) {
             Me(Q),
           )
         );
-        
+
         const Se = firstRecord[Q.name];
         const oe = Xe("td", { padding: "5px 10px" });
         const we = Xe("input", {
@@ -10897,26 +10897,26 @@ function multiSampleData(o, t) {
           });
           Te !== void 0 && (we.value = String(Te));
         });
-        
+
         oe.appendChild(we);
         Y.appendChild(oe);
         T_table.appendChild(Y);
       });
-      
+
       previewTableContainer.appendChild(T_table);
       objSection.appendChild(previewTableContainer);
       previewsContainer.appendChild(objSection);
-      
+
       toggleBtn.addEventListener("click", () => {
         const isCollapsed = previewTableContainer.style.display === "none";
         previewTableContainer.style.display = isCollapsed ? "block" : "none";
         toggleBtn.textContent = isCollapsed ? "Hide Preview" : "Show Preview";
       });
     }
-    
+
     let totalCount = 0;
     Object.keys(generatedData).forEach(k => totalCount += generatedData[k].length);
-    
+
     if (totalCount > 0) {
       const p = Xe("div", {
         display: "flex",
@@ -10930,7 +10930,7 @@ function multiSampleData(o, t) {
         `${totalCount} record${totalCount === 1 ? "" : "s"} ready across ${Object.keys(generatedData).length} objects`
       );
       p.appendChild(A);
-      
+
       se = Xe(
         "button",
         {
@@ -10975,15 +10975,15 @@ function multiSampleData(o, t) {
     if (!Object.keys(generatedData).length) return;
     let totalCount = 0;
     Object.keys(generatedData).forEach(k => totalCount += generatedData[k].length);
-    
+
     if (se) {
       se.textContent = "Inserting...";
       se.style.pointerEvents = "none";
     }
-    
+
     let totalInserted = 0;
     let failuresList = [];
-    
+
     for (const objName of Object.keys(generatedData)) {
       const records = generatedData[objName];
       const M = await t.insertRecords(objName, records);
@@ -10995,13 +10995,13 @@ function multiSampleData(o, t) {
       const successes = K.filter((q) => q.success && q.id).map((q) => q.id);
       insertedIds[objName] = successes;
       totalInserted += successes.length;
-      
+
       K.filter((q) => !q.success).forEach((q) => {
         const P = (q.errors && q.errors[0]) || {};
         failuresList.push(`${objName} - ${P.statusCode || "ERROR"}: ${P.message || "insert failed"}`);
       });
     }
-    
+
     z(totalInserted, totalCount, Le(failuresList));
   }
 
@@ -11015,7 +11015,7 @@ function multiSampleData(o, t) {
       padding: "14px",
       background: e ? "rgba(255,255,255,0.02)" : "#fff",
     });
-    
+
     q.appendChild(
       Xe(
         "div",
@@ -11027,7 +11027,7 @@ function multiSampleData(o, t) {
         `Inserted ${M} of ${K} record${K === 1 ? "" : "s"}`,
       )
     );
-    
+
     if (j.length) {
       q.appendChild(
         Xe(
@@ -11049,12 +11049,12 @@ function multiSampleData(o, t) {
       P.textContent = j.join(`\n`);
       q.appendChild(P);
     }
-    
+
     const allInsertedIds = [];
     Object.keys(insertedIds).forEach(oName => {
       allInsertedIds.push(...insertedIds[oName]);
     });
-    
+
     if (allInsertedIds.length) {
       const P = Xe("div", {
           display: "flex",
@@ -11063,7 +11063,7 @@ function multiSampleData(o, t) {
           marginTop: "12px",
           flexWrap: "wrap",
         });
-      
+
       const G = Xe(
         "button",
         {
@@ -11079,14 +11079,14 @@ function multiSampleData(o, t) {
         },
         `🗑 Delete these ${allInsertedIds.length} records`,
       );
-      
+
       G.addEventListener("click", async () => {
         G.textContent = "Deleting...";
         G.style.pointerEvents = "none";
-        
+
         let deleteFailed = false;
         let deleteError = "";
-        
+
         for (const objName of Object.keys(insertedIds)) {
           const ids = insertedIds[objName];
           if (ids.length === 0) continue;
@@ -11098,22 +11098,22 @@ function multiSampleData(o, t) {
             insertedIds[objName] = [];
           }
         }
-        
+
         if (deleteFailed) {
           t.flashToast(deleteError);
           G.textContent = "Delete failed — retry";
           G.style.pointerEvents = "auto";
           return;
         }
-        
+
         t.flashToast(`Deleted generated records`);
         U.innerHTML = "";
       });
-      
+
       P.appendChild(G);
       q.appendChild(P);
     }
-    
+
     U.appendChild(q);
     if (se) {
       let totalCount = 0;
@@ -35601,7 +35601,7 @@ function Ju() {
 function jsonToXml(json, rootName = 'Flow') {
   let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
   xml += `<${rootName} xmlns="http://soap.sforce.com/2006/04/metadata">\n`;
-  
+
   function convert(obj, indent = '    ') {
     let s = '';
     const keys = Object.keys(obj).sort();
@@ -35628,7 +35628,7 @@ function jsonToXml(json, rootName = 'Flow') {
     }
     return s;
   }
-  
+
   function escapeXml(unsafe) {
     return String(unsafe)
       .replace(/&/g, '&amp;')
@@ -35637,7 +35637,7 @@ function jsonToXml(json, rootName = 'Flow') {
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&apos;');
   }
-  
+
   xml += convert(json);
   xml += `</${rootName}>`;
   return xml;
@@ -35647,7 +35647,7 @@ function xmlToJson(xmlStr) {
   const parser = new DOMParser();
   const xmlDoc = parser.parseFromString(xmlStr, "text/xml");
   const root = xmlDoc.documentElement;
-  
+
   const arrayKeys = new Set([
     'actionCalls', 'apexClassInputParameters', 'assignments', 'choices', 'collectionProcessors',
     'constants', 'decisions', 'formulas', 'inputParameters', 'loops', 'outputParameters',
@@ -35667,13 +35667,13 @@ function xmlToJson(xmlStr) {
       if (!isNaN(txt) && txt !== '') return Number(txt);
       return txt;
     }
-    
+
     const obj = {};
     childNodes.forEach(child => {
       if (child.nodeType !== 1) return;
       const key = child.nodeName;
       const val = parseNode(child);
-      
+
       if (arrayKeys.has(key)) {
         if (!obj[key]) {
           obj[key] = [];
@@ -35692,7 +35692,7 @@ function xmlToJson(xmlStr) {
     });
     return obj;
   }
-  
+
   return parseNode(root);
 }
 
@@ -35799,28 +35799,28 @@ function handleFlowUploadXml() {
     return;
   }
   const flowId = match[1];
-  
+
   const input = document.createElement('input');
   input.type = 'file';
   input.accept = '.xml';
   input.style.display = 'none';
-  
+
   input.addEventListener('change', (e) => {
     const file = e.target.files[0];
     if (!file) return;
-    
+
     const reader = new FileReader();
     reader.onload = (evt) => {
       const xmlStr = evt.target.result;
       try {
         const metadata = xmlToJson(xmlStr);
         ot("Checking flow version status...", "info");
-        
+
         callFlowApi(`/services/data/v60.0/tooling/sobjects/Flow/${flowId}`, "GET")
           .then(currentFlow => {
             const isActive = currentFlow.Status === 'Active';
             const fullName = currentFlow.FullName;
-            
+
             if (isActive) {
               if (confirm("The version of the flow you're updating is active and can't be overwritten. Would you like to save it as a new version?")) {
                 ot("Saving as new version...", "info");
@@ -35865,7 +35865,7 @@ function handleFlowUploadXml() {
     };
     reader.readAsText(file);
   });
-  
+
   document.body.appendChild(input);
   input.click();
   document.body.removeChild(input);
@@ -35878,7 +35878,7 @@ function handleFlowDeleteVersion() {
     return;
   }
   const flowId = match[1];
-  
+
   if (confirm("Are you sure you want to delete this flow version? This cannot be undone.")) {
     ot("Deleting flow version...", "info");
     callFlowApi(`/services/data/v60.0/tooling/sobjects/Flow/${flowId}`, "DELETE")
@@ -35896,16 +35896,16 @@ function handleFlowDeleteVersion() {
 
 function injectFlowToolsMenu() {
   if (document.getElementById("sf-flow-tools-menu-container")) return;
-  
+
   // Find Flow Builder toolbar lists
   let buttonGroups = document.querySelectorAll('.builder-header .slds-button-group-list');
   if (!buttonGroups || buttonGroups.length === 0) {
     buttonGroups = document.querySelectorAll('.slds-button-group-list');
   }
-                       
+
   let targetSibling = null;
   let parentNode = null;
-  
+
   if (buttonGroups && buttonGroups.length > 0) {
     // Insert before the first button group list (so it's positioned stably before Run/Debug)
     targetSibling = buttonGroups[0];
@@ -35928,18 +35928,19 @@ function injectFlowToolsMenu() {
       }
     }
   }
-  
+
   if (!parentNode || !targetSibling) return;
-  
+
   const container = document.createElement('div');
   container.id = "sf-flow-tools-menu-container";
   Object.assign(container.style, {
     position: "relative",
     display: "inline-block",
     marginRight: "0.5rem",
-    verticalAlign: "middle"
+    verticalAlign: "middle",
+    flexShrink: "0"
   });
-  
+
   const button = document.createElement('button');
   button.className = "slds-button slds-button_neutral";
   button.innerHTML = 'Flow Tools <span style="font-size: 8px; margin-left: 5px; vertical-align: middle;">▼</span>';
@@ -35947,9 +35948,10 @@ function injectFlowToolsMenu() {
     height: "32px",
     display: "inline-flex",
     alignItems: "center",
-    padding: "0 12px"
+    padding: "0 12px",
+    whiteSpace: "nowrap"
   });
-  
+
   const dropdown = document.createElement('div');
   dropdown.id = "sf-flow-tools-dropdown";
   Object.assign(dropdown.style, {
@@ -35966,7 +35968,7 @@ function injectFlowToolsMenu() {
     display: "none",
     fontFamily: "sans-serif"
   });
-  
+
   const menuList = document.createElement('ul');
   Object.assign(menuList.style, {
     listStyle: "none",
@@ -35974,14 +35976,14 @@ function injectFlowToolsMenu() {
     padding: "4px 0",
     textAlign: "left"
   });
-  
+
   const menuItems = [
     { label: "Copy XML", action: handleFlowCopyXml },
     { label: "Download XML", action: handleFlowDownloadXml },
     { label: "Upload XML", action: handleFlowUploadXml },
     { label: "Delete Version", action: handleFlowDeleteVersion, style: { color: "#ea001e" } }
   ];
-  
+
   menuItems.forEach(item => {
     const li = document.createElement('li');
     li.textContent = item.label;
@@ -35994,38 +35996,42 @@ function injectFlowToolsMenu() {
       transition: "background-color 0.1s ease",
       ...item.style
     });
-    
+
     li.addEventListener('mouseenter', () => {
       li.style.backgroundColor = "#f3f2f2";
     });
     li.addEventListener('mouseleave', () => {
       li.style.backgroundColor = "transparent";
     });
-    
+
     li.addEventListener('click', (e) => {
       e.stopPropagation();
       dropdown.style.display = "none";
       item.action();
     });
-    
+
     menuList.appendChild(li);
   });
-  
+
   dropdown.appendChild(menuList);
   container.appendChild(button);
   container.appendChild(dropdown);
-  
+
   button.addEventListener('click', (e) => {
     e.stopPropagation();
     const isVisible = dropdown.style.display === "block";
     document.querySelectorAll('#sf-flow-tools-dropdown').forEach(d => d.style.display = "none");
     dropdown.style.display = isVisible ? "none" : "block";
   });
-  
+
+  // container.addEventListener('mouseleave', () => {
+  //   dropdown.style.display = "none";
+  // });
+
   document.addEventListener('click', () => {
     dropdown.style.display = "none";
   });
-  
+
   parentNode.insertBefore(container, targetSibling);
 }
 
