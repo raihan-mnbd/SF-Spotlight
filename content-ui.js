@@ -7364,6 +7364,15 @@ function ts(o, t, e) {
       render: () => Cc(l, t, n),
     },
     { id: "rawlog", label: "Raw Log", icon: "📄", render: () => Sc(l, t, n) },
+    {
+      id: "ai",
+      label: "AI",
+      icon: "🤖",
+      render: () =>
+        typeof renderLogAI == "function"
+          ? renderLogAI(l, t, n)
+          : (l.textContent = "AI module not loaded — reload the extension."),
+    },
   ];
   let g = "timeline";
   const r = new Map(),
@@ -11994,17 +12003,6 @@ function ka(o, t) {
     padding: "16px 24px",
     borderTop: `1px solid ${n.divider}`,
   });
-  const b = document.createElement("a");
-  ((b.textContent = "View docs ↗"),
-    (b.href = "https://sfspotlight.vercel.app/docs.html"),
-    (b.target = "_blank"),
-    (b.rel = "noopener noreferrer"),
-    Object.assign(b.style, {
-      fontSize: "13px",
-      fontWeight: "600",
-      color: n.textMuted,
-      textDecoration: "none",
-    }));
   const N = document.createElement("button");
   ((N.textContent = "Got it"),
     Object.assign(N.style, {
@@ -12019,7 +12017,7 @@ function ka(o, t) {
       fontFamily: "inherit",
     }),
     N.addEventListener("click", s),
-    u.appendChild(b),
+    (u.style.justifyContent = "flex-end"),
     u.appendChild(N),
     d.appendChild(u),
     (i.style.pointerEvents = "auto"));
@@ -14276,7 +14274,6 @@ function renderUserClone(o, t) {
       </div>
       <div style="font-size:13px;line-height:1.6;color:${n.text};display:flex;flex-direction:column;gap:12px">
         <p><b>1-Click User Replication:</b> Onboard new employees or clone existing users in seconds. Copies Profile, Role, Permission Sets, Permission Set Groups, Package Licenses (e.g. Litify, DocuSign, Financial Services), and Public Group/Queue memberships.</p>
-        <p><b>✨ Smart Request Text Auto-Fill:</b> Paste manager/IT emails or ticketing requests (e.g. <i>"Please assign open Litify license to our new intake manager Ryan K. (raihan@micronetbd.org) who starts 10/1..."</i>) and click <b>Auto-Fill Form</b>. The tool automatically detects First Name, Last Name, Email, generates username/alias, and preselects matching package licenses!</p>
         <p><b>Target Modes:</b> You can create a <b>Brand New User</b> from scratch or replicate permissions into an <b>Existing Salesforce User</b>.</p>
       </div>
       <div style="display:flex;justify-content:flex-end;margin-top:20px">
@@ -14363,72 +14360,7 @@ function renderUserClone(o, t) {
     };
   }
 
-  // --- SECTION A: Smart Paste & Prompt Parser Card ---
-  const smartCard = rt("div", {
-    background: isDark ? "linear-gradient(135deg, rgba(30,58,138,0.2), rgba(15,23,42,0.6))" : "linear-gradient(135deg, rgba(239,246,255,0.8), rgba(248,250,252,0.9))",
-    border: "1px solid rgba(59,130,246,0.3)",
-    borderRadius: "12px",
-    padding: "16px 20px",
-    display: "flex",
-    flexDirection: "column",
-    gap: "10px",
-  });
-  bodyWrap.appendChild(smartCard);
-
-  const smartHeader = rt("div", { display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "8px" });
-  smartCard.appendChild(smartHeader);
-
-  const smartTitle = rt("div", {
-    fontSize: "14px",
-    fontWeight: "800",
-    color: "#3b82f6",
-    display: "flex",
-    alignItems: "center",
-    gap: "8px",
-  });
-  smartTitle.innerHTML = `<span>✨</span> Smart Onboarding Request Parser (Paste & Auto-Fill)`;
-  smartHeader.appendChild(smartTitle);
-
-  const smartSub = rt("div", { fontSize: "12px", color: n.muted }, "Paste any onboarding email, ticket, or message below. SFPilot will extract the name, email, role/profile hint, and requested package licenses.");
-  smartCard.appendChild(smartSub);
-
-  const smartTextarea = rt("textarea", {
-    width: "100%",
-    boxSizing: "border-box",
-    minHeight: "56px",
-    maxHeight: "120px",
-    padding: "8px 12px",
-    borderRadius: "8px",
-    border: `1px solid ${n.border}`,
-    background: isDark ? "#1e293b" : "#ffffff",
-    color: n.text,
-    fontSize: "12.5px",
-    fontFamily: "inherit",
-    resize: "vertical",
-  });
-  smartTextarea.placeholder = 'e.g. Please assign one of the open Litify licenses to our new intake manager Ryan K. (raihan@micronetbd.org) who is starting on 10/1.';
-  smartCard.appendChild(smartTextarea);
-
-  const smartActions = rt("div", { display: "flex", alignItems: "center", gap: "10px", justifyContent: "flex-end" });
-  smartCard.appendChild(smartActions);
-
-  const parseBtn = rt("button", {
-    background: "#3b82f6",
-    color: "#ffffff",
-    border: "none",
-    borderRadius: "6px",
-    padding: "6px 14px",
-    fontSize: "12px",
-    fontWeight: "700",
-    cursor: "pointer",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "6px",
-    fontFamily: "inherit",
-  }, "⚡ Auto-Fill Form from Text");
-  smartActions.appendChild(parseBtn);
-
-  // --- SECTION B: Two-Column Configuration Grid ---
+  // --- SECTION A: Two-Column Configuration Grid ---
   const configGrid = rt("div", {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(380px, 1fr))",
@@ -14459,6 +14391,21 @@ function renderUserClone(o, t) {
   sourceTitle.innerHTML = `<span style="font-size:16px">👤</span> 1. Select Source User to Clone From`;
   sourceCard.appendChild(sourceTitle);
 
+  const sourceSearchInput = rt("input", {
+    width: "100%",
+    boxSizing: "border-box",
+    padding: "8px 12px",
+    borderRadius: "8px",
+    border: `1px solid ${n.border}`,
+    background: isDark ? "#1e293b" : "#ffffff",
+    color: n.text,
+    fontSize: "12.5px",
+    fontFamily: "inherit",
+    outline: "none",
+  });
+  sourceSearchInput.placeholder = "🔍 Search users by name, username, title, role…";
+  sourceCard.appendChild(sourceSearchInput);
+
   const sourceSelect = rt("select", {
     width: "100%",
     padding: "10px 12px",
@@ -14472,6 +14419,48 @@ function renderUserClone(o, t) {
   });
   sourceSelect.innerHTML = `<option value="">— Loading Active Salesforce Users… —</option>`;
   sourceCard.appendChild(sourceSelect);
+
+  function populateSourceUsers(query = "") {
+    const q = (query || "").trim().toLowerCase();
+    const curVal = selectedSourceUser?.Id || sourceSelect.value;
+    sourceSelect.innerHTML = "";
+    const filtered = q
+      ? usersList.filter((u) => {
+          const nm = (u.Name || "").toLowerCase();
+          const un = (u.Username || "").toLowerCase();
+          const em = (u.Email || "").toLowerCase();
+          const tit = (u.Title || "").toLowerCase();
+          const prof = (u.Profile?.Name || "").toLowerCase();
+          const rol = (u.UserRole?.Name || "").toLowerCase();
+          return nm.includes(q) || un.includes(q) || em.includes(q) || tit.includes(q) || prof.includes(q) || rol.includes(q);
+        })
+      : usersList;
+
+    if (filtered.length === 0) {
+      sourceSelect.innerHTML = `<option value="">— No users match "${query}" —</option>`;
+      return;
+    }
+
+    const firstOpt = rt("option");
+    firstOpt.value = "";
+    firstOpt.textContent = q ? `— ${filtered.length} user(s) matching "${query}" —` : `— Select Source User to Clone From (${usersList.length} users) —`;
+    sourceSelect.appendChild(firstOpt);
+
+    filtered.forEach((u) => {
+      const opt = rt("option");
+      opt.value = u.Id;
+      opt.textContent = `${u.Name} (${u.Title || u.Profile?.Name || 'User'}) - ${u.Username}`;
+      sourceSelect.appendChild(opt);
+    });
+
+    if (curVal && filtered.some((u) => u.Id === curVal)) {
+      sourceSelect.value = curVal;
+    }
+  }
+
+  sourceSearchInput.addEventListener("input", () => {
+    populateSourceUsers(sourceSearchInput.value);
+  });
 
   const sourceDetails = rt("div", {
     fontSize: "12px",
@@ -15267,75 +15256,7 @@ function renderUserClone(o, t) {
     startCloneBtn.style.cursor = "pointer";
   }
 
-  // Smart Request Parser
-  parseBtn.addEventListener("click", () => {
-    const rawText = smartTextarea.value.trim();
-    if (!rawText) {
-      t.flashToast("Please paste an onboarding request first.");
-      return;
-    }
 
-    // 1. Extract email
-    const emailMatch = rawText.match(/([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/);
-    if (emailMatch) {
-      emailInput.value = emailMatch[1];
-      usernameInput.value = emailMatch[1];
-    }
-
-    // 2. Extract name
-    // Common patterns: "to our new intake manager Ryan K.", "for Ryan K.", "user Ryan K."
-    let detectedFirst = "";
-    let detectedLast = "";
-
-    const nameRegex = /(?:manager|user|employee|to|for|onboard|name(?:\s+is)?)\s+([A-Z][a-z]+)\s+([A-Z][a-z]+)/i;
-    const nameMatch = rawText.match(nameRegex);
-    if (nameMatch) {
-      detectedFirst = nameMatch[1];
-      detectedLast = nameMatch[2];
-    } else {
-      // Fallback: look for two capitalized words preceding email
-      const preEmailMatch = rawText.match(/([A-Z][a-z]+)\s+([A-Z][a-z]+)(?:\s*\([^)]*@|\s*<[^>]*@|\s*\[mailto:|\s+who)/);
-      if (preEmailMatch) {
-        detectedFirst = preEmailMatch[1];
-        detectedLast = preEmailMatch[2];
-      }
-    }
-
-    if (detectedFirst) fnInput.value = detectedFirst;
-    if (detectedLast) lnInput.value = detectedLast;
-
-    autoPopulateUserMeta();
-
-    // 3. Detect requested package licenses (e.g. Litify, DocuSign, Financial Services)
-    let matchedPkgCount = 0;
-    packageLicenses.forEach((pkg) => {
-      const ns = (pkg.NamespacePrefix || "").toLowerCase();
-      if (ns && rawText.toLowerCase().includes(ns)) {
-        selectedPackages.add(pkg.Id);
-        matchedPkgCount++;
-      } else if (rawText.toLowerCase().includes("litify") && ns.includes("litify")) {
-        selectedPackages.add(pkg.Id);
-        matchedPkgCount++;
-      }
-    });
-
-    renderPackageLicensesList();
-
-    // 4. Try auto-matching source user if role/title mentioned (e.g. "intake manager")
-    const lowerText = rawText.toLowerCase();
-    const candidateSource = usersList.find((u) => {
-      const title = (u.Title || "").toLowerCase();
-      const role = (u.UserRole?.Name || "").toLowerCase();
-      return (title && lowerText.includes(title)) || (role && lowerText.includes(role));
-    });
-    if (candidateSource && !sourceSelect.value) {
-      sourceSelect.value = candidateSource.Id;
-      sourceSelect.dispatchEvent(new Event("change"));
-    }
-
-    t.flashToast(`Smart Auto-Fill: Detected ${detectedFirst} ${detectedLast} (${matchedPkgCount} package seats matched)`);
-    updateSummary();
-  });
 
   // Load Initial Data
   async function loadInitialData() {
@@ -15358,13 +15279,7 @@ function renderUserClone(o, t) {
       orgInfo = (orgRes.records || [])[0] || {};
 
       // Populate Source User Dropdown
-      sourceSelect.innerHTML = `<option value="">— Select Source User to Clone From —</option>`;
-      usersList.forEach((u) => {
-        const opt = rt("option");
-        opt.value = u.Id;
-        opt.textContent = `${u.Name} (${u.Title || u.Profile?.Name || 'User'}) - ${u.Username}`;
-        sourceSelect.appendChild(opt);
-      });
+      populateSourceUsers("");
 
       // Populate Existing Target User Dropdown
       existingUserSelect.innerHTML = `<option value="">— Select Target User to Receive Permissions —</option>`;
@@ -29385,11 +29300,6 @@ function uu(o, t) {
         ),
       ),
     ),
-      A.appendChild(
-        Z("🐛  Report a bug", "ghost", () =>
-          ks("https://forms.gle/ed2VcwQTJXTDaMUv6"),
-        ),
-      ),
       w.appendChild(A),
       T(w));
   }
@@ -34407,7 +34317,7 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
     height: "38px",
     fontFamily: "inherit"
   });
-  chatInput.placeholder = "Ask AI to generate or modify code...";
+  chatInput.placeholder = "Ask AI to generate or modify code…  (Enter to send, Shift+Enter for new line)";
   chatInputRow.appendChild(chatInput);
 
   const sendBtn = $e("button", {
@@ -34604,6 +34514,13 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
     const fullPrompt = `${prefix}\n\n\`\`\`apex\n${code}\n\`\`\``;
     await askAI(fullPrompt);
   }
+
+  chatInput.addEventListener("keydown", (ev) => {
+    if (ev.key !== "Enter" || ev.shiftKey || ev.isComposing || ev.keyCode === 229) return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    sendBtn.click();
+  });
 
   sendBtn.addEventListener("click", async () => {
     const text = chatInput.value.trim();
@@ -38312,16 +38229,12 @@ function Wa(o) {
     (X.style.borderTop = `1px solid ${a.divider}`),
     (X.style.backgroundColor = a.side));
   const re = document.createElement("a");
-  ((re.href = "https://sfspotlight.vercel.app/index.html"),
-    (re.target = "_blank"),
-    (re.rel = "noopener noreferrer"),
-    (re.title = "Open documentation"),
-    (re.style.display = "flex"),
+  ((re.style.display = "flex"),
     (re.style.alignItems = "center"),
     (re.style.gap = "10px"),
     (re.style.flexShrink = "0"),
     (re.style.textDecoration = "none"),
-    (re.style.cursor = "pointer"),
+    (re.style.cursor = "default"),
     re.addEventListener("mouseover", () => {
       re.style.opacity = "0.7";
     }),
@@ -38378,49 +38291,7 @@ function Wa(o) {
         _.appendChild(W),
         Be.appendChild(_));
     }));
-  const ge = document.createElement("a");
-  ((ge.href = "https://sfspotlight.vercel.app/docs.html"),
-    (ge.target = "_blank"),
-    (ge.rel = "noopener noreferrer"),
-    (ge.style.display = "flex"),
-    (ge.style.alignItems = "center"),
-    (ge.style.gap = "6px"),
-    (ge.style.fontSize = "13px"),
-    (ge.style.fontWeight = "600"),
-    (ge.style.color = s.textMuted),
-    (ge.style.textDecoration = "none"),
-    (ge.style.whiteSpace = "nowrap"),
-    (ge.innerHTML =
-      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span>Docs</span>'),
-    ge.addEventListener("mouseover", () => {
-      ge.style.color = s.textPrimary;
-    }),
-    ge.addEventListener("mouseout", () => {
-      ge.style.color = s.textMuted;
-    }),
-    Be.appendChild(ge));
-  const ue = document.createElement("a");
-  ((ue.href = "https://forms.gle/ed2VcwQTJXTDaMUv6"),
-    (ue.target = "_blank"),
-    (ue.rel = "noopener noreferrer"),
-    (ue.style.display = "flex"),
-    (ue.style.alignItems = "center"),
-    (ue.style.gap = "6px"),
-    (ue.style.fontSize = "13px"),
-    (ue.style.fontWeight = "600"),
-    (ue.style.color = s.textMuted),
-    (ue.style.textDecoration = "none"),
-    (ue.style.whiteSpace = "nowrap"),
-    (ue.innerHTML =
-      '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="6" width="8" height="14" rx="4"></rect><path d="m19 7-3 2"></path><path d="m5 7 3 2"></path><path d="M19 19l-3-2"></path><path d="m5 19 3-2"></path><path d="M20 13h-4"></path><path d="M4 13h4"></path><path d="m10 4 1 2"></path><path d="m14 4-1 2"></path></svg><span>Report issue</span>'),
-    ue.addEventListener("mouseover", () => {
-      ue.style.color = s.textPrimary;
-    }),
-    ue.addEventListener("mouseout", () => {
-      ue.style.color = s.textMuted;
-    }),
-    Be.appendChild(ue),
-    e || X.appendChild(re));
+  (e || X.appendChild(re));
   let Me = null;
   if (e) {
     const f = mt === "dark",
@@ -38880,6 +38751,8 @@ function Wa(o) {
                           name: W.Name,
                           email: W.Email,
                           username: W.Username,
+                          profile: W.Profile?.Name || "",
+                          role: W.UserRole?.Name || "",
                         })),
                       )
                     : _([]);
@@ -39986,7 +39859,9 @@ function Wa(o) {
           (B) =>
             (B.name || "").toLowerCase().includes(m) ||
             (B.email || "").toLowerCase().includes(m) ||
-            (B.username || "").toLowerCase().includes(m),
+            (B.username || "").toLowerCase().includes(m) ||
+            (B.profile || "").toLowerCase().includes(m) ||
+            (B.role || "").toLowerCase().includes(m),
         )
         .slice(0, 5);
       if (ne.length) {
@@ -40007,6 +39882,8 @@ function Wa(o) {
                 name: xe.name,
                 email: xe.email,
                 username: xe.username,
+                profile: xe.profile,
+                role: xe.role,
               },
               He = document.createElement("div");
             (Object.assign(He.style, {
@@ -40026,7 +39903,7 @@ function Wa(o) {
               Object.assign(he.style, { fontSize: "16px", flexShrink: "0" }));
             const Pe = document.createElement("div");
             (Object.assign(Pe.style, { flex: "1", minWidth: "0" }),
-              (Pe.innerHTML = `<div style="font-size:14px;font-weight:600;color:${s.textPrimary};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ze.name}</div><div style="font-size:12px;color:${s.textFaint};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ze.email || ze.username || ""}</div>`));
+              (Pe.innerHTML = `<div style="font-size:14px;font-weight:600;color:${s.textPrimary};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ze.name}</div><div style="font-size:12px;color:${s.textFaint};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${ze.email || ze.username || ""}${ze.profile ? ` · Profile: ${ze.profile}` : ""}${ze.role ? ` · Role: ${ze.role}` : ""}</div>`));
             const Ue = document.createElement("div");
             Object.assign(Ue.style, {
               display: "flex",
@@ -40822,9 +40699,11 @@ ${at.error}`),
                 (h) =>
                   h.name.toLowerCase().includes(f) ||
                   (h.email || "").toLowerCase().includes(f) ||
-                  (h.username || "").toLowerCase().includes(f),
+                  (h.username || "").toLowerCase().includes(f) ||
+                  (h.profile || "").toLowerCase().includes(f) ||
+                  (h.role || "").toLowerCase().includes(f),
               ))
-            : (ie = W.slice(0, 15)),
+            : (ie = W.slice(0, 50)),
           ie.length === 0)
         ) {
           z(
@@ -40887,6 +40766,51 @@ ${at.error}`),
             (He.textContent = h.email || h.username),
             ne.appendChild(xe),
             ne.appendChild(He));
+          if (h.profile || h.role) {
+            const metaWrap = document.createElement("div");
+            Object.assign(metaWrap.style, {
+              display: "flex",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: "6px",
+              marginTop: "5px",
+            });
+            if (h.profile) {
+              const pBadge = document.createElement("span");
+              Object.assign(pBadge.style, {
+                fontSize: "11px",
+                fontWeight: "600",
+                color: s.textPrimary,
+                background: s.surface || "rgba(255, 255, 255, 0.06)",
+                border: `1px solid ${s.chipBorder || s.divider}`,
+                padding: "2px 8px",
+                borderRadius: "6px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "4px",
+              });
+              pBadge.innerHTML = `<span style="font-size:12px">👤</span> Profile: <span style="font-weight:700">${h.profile}</span>`;
+              metaWrap.appendChild(pBadge);
+            }
+            if (h.role) {
+              const rBadge = document.createElement("span");
+              Object.assign(rBadge.style, {
+                fontSize: "11px",
+                fontWeight: "600",
+                color: s.textPrimary,
+                background: s.surface || "rgba(255, 255, 255, 0.06)",
+                border: `1px solid ${s.chipBorder || s.divider}`,
+                padding: "2px 8px",
+                borderRadius: "6px",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "4px",
+              });
+              rBadge.innerHTML = `<span style="font-size:12px">💼</span> Role: <span style="font-weight:700">${h.role}</span>`;
+              metaWrap.appendChild(rBadge);
+            }
+            ne.appendChild(metaWrap);
+          }
           const he = document.createElement("div");
           ((he.style.display = "flex"),
             (he.style.gap = "8px"),
