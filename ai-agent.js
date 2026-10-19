@@ -483,7 +483,7 @@ function renderAIAgent(container, isDark, onBack, flashToast) {
   });
   container.appendChild(root);
 
-  const { head, right } = Wo(th, "🧠 AI Agent", onBack, "Tools");
+  const { head, right } = Wo(th, "AI Agent", onBack, "Tools");
   root.appendChild(head);
 
   const providerTag = $e("select", {
