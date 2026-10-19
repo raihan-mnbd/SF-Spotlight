@@ -655,7 +655,7 @@ function renderAIAgent(container, isDark, onBack, flashToast) {
     });
     card.dataset.msg = "step";
     const hdr = $e("div", { fontWeight: "700", display: "flex", gap: "8px", alignItems: "center" });
-    const status = $e("span", { color: th.muted }, "⏳");
+    const status = $e("span", { color: th.muted }, "\uE296");
     hdr.appendChild(status);
     hdr.appendChild($e("span", void 0, title));
     card.appendChild(hdr);
@@ -669,7 +669,7 @@ function renderAIAgent(container, isDark, onBack, flashToast) {
       card,
       body,
       set(state, detailHtml) {
-        status.textContent = state === "ok" ? "✅" : state === "fail" ? "❌" : state === "skip" ? "⏭" : "⏳";
+        status.textContent = state === "ok" ? "\uE226" : state === "fail" ? "\uE084" : state === "skip" ? "\uE160" : "\uE296";
         if (detailHtml != null) body.innerHTML = detailHtml;
       },
     };
@@ -997,10 +997,10 @@ function renderLogAI(container, rawLog, th) {
       label,
     );
   const quick = [
-    ["🔍 Full analysis", "Give a full analysis of this log.", !0],
-    ["🐞 Explain errors", "Explain every exception/error in this log, its root cause, and how to fix it with code."],
-    ["⚡ Performance", "Find performance problems: governor limits close to the max, SOQL/DML inside loops, repeated queries, slow sections. Suggest bulkified fixes."],
-    ["📝 Summarise", "Summarise in 5 bullet points what this transaction did."],
+    ["\uE151 Full analysis", "Give a full analysis of this log.", !0],
+    ["\uE20C Explain errors", "Explain every exception/error in this log, its root cause, and how to fix it with code."],
+    ["\uE1B4 Performance", "Find performance problems: governor limits close to the max, SOQL/DML inside loops, repeated queries, slow sections. Suggest bulkified fixes."],
+    ["\uE596 Summarise", "Summarise in 5 bullet points what this transaction did."],
   ];
   const quickBtns = quick.map(([label, prompt, primary]) => {
     const b = btn(label, primary);

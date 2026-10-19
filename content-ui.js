@@ -7557,7 +7557,7 @@ function gc(o, t, e) {
     const g = ve(
       "span",
       { fontSize: "13px", color: "#f59e0b", cursor: "help" },
-      "⚠",
+      "\uE193",
     );
     ((g.title = o.logIssues.map((r) => r.summary).join(`
 `)),
@@ -8812,13 +8812,13 @@ function vc(o, t, e) {
       error: {
         bg: "rgba(239,68,68,0.10)",
         border: "rgba(239,68,68,0.35)",
-        icon: "⛔",
+        icon: "\uE128",
         col: "#ef4444",
       },
       warning: {
         bg: "rgba(245,158,11,0.10)",
         border: "rgba(245,158,11,0.35)",
-        icon: "⚠️",
+        icon: "\uE193",
         col: "#f59e0b",
       },
       success: {
@@ -9413,7 +9413,7 @@ function Tc(o, t) {
       zIndex: "2147483646",
       display: "flex",
       flexDirection: "column",
-      fontFamily: "Inter, system-ui, sans-serif",
+      fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
       color: i.text,
       borderLeft: `1px solid ${i.border}`,
     }));
@@ -9676,7 +9676,7 @@ function la(o, t, e) {
           window.open(t.recordUrl(o), "_blank", "noopener"),
         ),
       ),
-        a.appendChild(l("👁", "View record data", () => _c(o, t, e))),
+        a.appendChild(l("\uE0BA", "View record data", () => _c(o, t, e))),
         a.appendChild(
           l(
             "⧉",
@@ -9741,7 +9741,7 @@ function _c(o, t, e) {
       borderRadius: "14px",
       overflow: "hidden",
       boxShadow: "0 24px 60px rgba(0,0,0,0.4)",
-      fontFamily: "system-ui, sans-serif",
+      fontFamily: "'SFPilot Icons', system-ui, sans-serif",
     }),
     l = Rt("div", {
       display: "flex",
@@ -10535,7 +10535,7 @@ function QcBulk(o, t) {
     fontWeight: "600",
   });
   ((y.innerHTML =
-    "⚠️&nbsp; For use in <b>sandbox &amp; scratch orgs only</b> — never generate data in a production org."),
+    "\uE193&nbsp; For use in <b>sandbox &amp; scratch orgs only</b> — never generate data in a production org."),
     d.appendChild(y));
   let g = "unknown";
   const r = Xe(
@@ -10667,7 +10667,7 @@ function QcBulk(o, t) {
       fontWeight: "700",
       fontFamily: "inherit",
     },
-    "⚡ Generate previews",
+    "\uE1B4 Generate previews",
   );
   (c.appendChild(L), d.appendChild(c));
   const D = Xe("div", {});
@@ -10725,16 +10725,16 @@ function QcBulk(o, t) {
     g = zc(M);
     const K = M?.name ? ` · ${M.name}` : "";
     (g === "sandbox"
-      ? ((r.textContent = `✅ Sandbox org${K} — safe to generate data.`),
+      ? ((r.textContent = `\uE226 Sandbox org${K} — safe to generate data.`),
         (r.style.color = n.ok))
       : g === "scratch"
-        ? ((r.textContent = `✅ Scratch / trial org${K} — safe to generate data.`),
+        ? ((r.textContent = `\uE226 Scratch / trial org${K} — safe to generate data.`),
           (r.style.color = n.ok))
         : g === "production"
-          ? ((r.innerHTML = `⛔ <b>Production org detected${K}</b> — you'll be asked to confirm before any records are inserted.`),
+          ? ((r.innerHTML = `\uE128 <b>Production org detected${K}</b> — you'll be asked to confirm before any records are inserted.`),
             (r.style.color = n.danger))
           : ((r.textContent =
-              "⚠️ Could not verify org type — you'll be asked to confirm before inserting."),
+              "\uE193 Could not verify org type — you'll be asked to confirm before inserting."),
             (r.style.color = n.warn)),
       De());
   });
@@ -10794,7 +10794,7 @@ function QcBulk(o, t) {
           color: n.danger,
           marginBottom: "8px",
         },
-        "⚠️ This is not a sandbox or scratch org",
+        "\uE193 This is not a sandbox or scratch org",
       ),
     ),
       j.appendChild(
@@ -10984,13 +10984,13 @@ function QcBulk(o, t) {
       let statusColor = n.muted;
 
       if (data.error) {
-        statusText = `⛔ Error: ${data.error}`;
+        statusText = `\uE128 Error: ${data.error}`;
         statusColor = n.danger;
       } else if (data.missingLookups && data.missingLookups.length > 0) {
-        statusText = `⚠️ Missing Lookups`;
+        statusText = `\uE193 Missing Lookups`;
         statusColor = n.warn;
       } else {
-        statusText = `✅ Ready (${data.records.length} records)`;
+        statusText = `\uE226 Ready (${data.records.length} records)`;
         statusColor = n.ok;
       }
 
@@ -11009,7 +11009,7 @@ function QcBulk(o, t) {
           padding: "3px 8px",
           fontSize: "11.5px",
           cursor: "pointer",
-        }, data.collapsed ? "👁️ View Fields" : "🙈 Hide Fields");
+        }, data.collapsed ? "\uE0BA View Fields" : "\uE0BB Hide Fields");
 
         toggleBtn.addEventListener("click", (evt) => {
           evt.stopPropagation();
@@ -11160,7 +11160,7 @@ function QcBulk(o, t) {
           fontWeight: "700",
           fontFamily: "inherit",
         },
-        `⬆ Insert All Records`,
+        `\uE04A Insert All Records`,
       )),
       se.addEventListener("click", ye),
       p.appendChild(se),
@@ -11310,7 +11310,7 @@ function QcBulk(o, t) {
           fontWeight: "700",
           fontFamily: "inherit",
         },
-        `🗑 Delete these ${insertedIds.length} records`,
+        `\uE18E Delete these ${insertedIds.length} records`,
       );
       G.addEventListener("click", async () => {
         ((G.textContent = "Deleting…"), (G.style.pointerEvents = "none"));
@@ -11333,7 +11333,7 @@ function QcBulk(o, t) {
 
     U.appendChild(q);
     if (se) {
-      se.textContent = `⬆ Insert All Records`;
+      se.textContent = `\uE04A Insert All Records`;
       De();
     }
   }
@@ -11905,27 +11905,27 @@ function Ea() {
 const hi = "sf_log_analyzer_last_seen_version",
   fp = [
     {
-      icon: "🔎",
+      icon: "\uE151",
       title: "Log Explorer",
       desc: "Your debug logs in a sortable table — open, copy, download, delete in bulk, or live-refresh.",
     },
     {
-      icon: "📊",
+      icon: "\uE2A3",
       title: "Apex Log Analyzer",
       desc: "Click Analyze on any log for a full breakdown across five tabs.",
     },
     {
-      icon: "🔥",
+      icon: "\uE0D2",
       title: "Timeline flame chart",
       desc: "A zoomable, pannable canvas timeline with an overview strip and rich hover tooltips.",
     },
     {
-      icon: "🌳",
+      icon: "\uE125",
       title: "Call Tree, Analysis & Database",
       desc: "Sortable call tree, bottom-up method aggregation, and grouped SOQL/DML views.",
     },
     {
-      icon: "📄",
+      icon: "\uE0CC",
       title: "Raw Log tab",
       desc: "Read and filter the unparsed log line-by-line, then copy or download it.",
     },
@@ -11959,7 +11959,7 @@ function ka(o, t) {
       alignItems: "center",
       justifyContent: "center",
       pointerEvents: "none",
-      fontFamily: "Inter, system-ui, sans-serif",
+      fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
     }),
     document.body.appendChild(i));
   const s = () => {
@@ -12414,7 +12414,7 @@ function hp(o, t) {
       fontFamily: "inherit",
       marginLeft: "6px",
     },
-    "📥 Export Tab CSV",
+    "\uE0B2 Export Tab CSV",
   );
   const exportFullBtn = rt(
     "button",
@@ -12433,7 +12433,7 @@ function hp(o, t) {
       fontFamily: "inherit",
       marginLeft: "4px",
     },
-    "⚡ Full Diff Audit CSV",
+    "\uE1B4 Full Diff Audit CSV",
   );
   E.appendChild(exportBtn);
   E.appendChild(exportFullBtn);
@@ -13724,7 +13724,7 @@ function hp(o, t) {
     const nameA = be(P);
     const nameB = be(ee);
     const oldBtnText = exportFullBtn.textContent;
-    exportFullBtn.textContent = "⏳ Generating…";
+    exportFullBtn.textContent = "\uE296 Generating…";
     exportFullBtn.disabled = true;
 
     try {
@@ -14225,7 +14225,7 @@ function renderUserClone(o, t) {
     flexDirection: "column",
     background: n.bg,
     color: n.text,
-    fontFamily: "Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamily: "'SFPilot Icons', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
     position: "relative",
   });
   o.appendChild(container);
@@ -14274,7 +14274,7 @@ function renderUserClone(o, t) {
     cursor: "pointer",
     fontFamily: "inherit",
     marginLeft: "8px",
-  }, "🧬 Switch to Profile/Perm Clone");
+  }, "\uE09E Switch to Profile/Perm Clone");
   switchPermBtn.addEventListener("click", () => renderPermClone(o, t));
   headerLeft.appendChild(switchPermBtn);
 
@@ -14319,7 +14319,7 @@ function renderUserClone(o, t) {
     });
     modal.innerHTML = `
       <div style="font-size:18px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px">
-        <span>👥</span> User Clone & Onboarding Guide
+        <span>\uE1A4</span> User Clone & Onboarding Guide
       </div>
       <div style="font-size:13px;line-height:1.6;color:${n.text};display:flex;flex-direction:column;gap:12px">
         <p><b>1-Click User Replication:</b> Onboard new employees or clone existing users in seconds. Copies Profile, Role, Permission Sets, Permission Set Groups, Package Licenses (e.g. Litify, DocuSign, Financial Services), and Public Group/Queue memberships.</p>
@@ -14465,7 +14465,7 @@ function renderUserClone(o, t) {
     gap: "8px",
     color: n.text,
   });
-  sourceTitle.innerHTML = `<span style="font-size:16px">👤</span> 1. Select Source User to Clone From`;
+  sourceTitle.innerHTML = `<span style="font-size:16px">\uE19F</span> 1. Select Source User to Clone From`;
   sourceCard.appendChild(sourceTitle);
 
   const sourceSearchInput = rt("input", {
@@ -14480,7 +14480,7 @@ function renderUserClone(o, t) {
     fontFamily: "inherit",
     outline: "none",
   });
-  sourceSearchInput.placeholder = "🔍 Search users by name, username, title, role…";
+  sourceSearchInput.placeholder = "Search users by name, username, title, role…";
   sourceCard.appendChild(sourceSearchInput);
 
   const sourceSelect = rt("select", {
@@ -14569,7 +14569,7 @@ function renderUserClone(o, t) {
     gap: "8px",
     color: n.text,
   });
-  targetTitle.innerHTML = `<span style="font-size:16px">🎯</span> 2. Target User Configuration`;
+  targetTitle.innerHTML = `<span style="font-size:16px">\uE180</span> 2. Target User Configuration`;
   targetCard.appendChild(targetTitle);
 
   // Target Mode Switcher (New User vs Existing User)
@@ -14593,7 +14593,7 @@ function renderUserClone(o, t) {
     background: "#3b82f6",
     color: "#fff",
     fontFamily: "inherit",
-  }, "🆕 Create New User");
+  }, "\uE1A2 Create New User");
   targetModeWrap.appendChild(newTargetBtn);
 
   const existTargetBtn = rt("button", {
@@ -14606,7 +14606,7 @@ function renderUserClone(o, t) {
     background: "transparent",
     color: n.muted,
     fontFamily: "inherit",
-  }, "🔄 Clone into Existing User");
+  }, "\uE145 Clone into Existing User");
   targetModeWrap.appendChild(existTargetBtn);
 
   // Form Container: New User
@@ -14852,7 +14852,7 @@ function renderUserClone(o, t) {
     alignItems: "center",
     gap: "8px",
   });
-  domainTitle.innerHTML = `<span style="font-size:16px">⚙️</span> 3. Domains to Replicate & Assign`;
+  domainTitle.innerHTML = `<span style="font-size:16px">\uE154</span> 3. Domains to Replicate & Assign`;
   domainHeader.appendChild(domainTitle);
 
   const domainTogglesGrid = rt("div", {
@@ -14866,8 +14866,8 @@ function renderUserClone(o, t) {
     { key: "profile", icon: "", label: "Profile & Role", desc: "User license, base security profile & role" },
     { key: "permSets", icon: "", label: "Permission Sets", desc: "All direct Permission Sets assigned to source" },
     { key: "psg", icon: "", label: "Permission Set Groups", desc: "All Permission Set Groups bundled for user" },
-    { key: "packages", icon: "💼", label: "Package Licenses", desc: "Installed managed package seats (e.g. Litify)" },
-    { key: "groups", icon: "👥", label: "Public Groups & Queues", desc: "Replicate public group and case/lead queue memberships" },
+    { key: "packages", icon: "\uE062", label: "Package Licenses", desc: "Installed managed package seats (e.g. Litify)" },
+    { key: "groups", icon: "\uE1A4", label: "Public Groups & Queues", desc: "Replicate public group and case/lead queue memberships" },
   ];
 
   const domainElements = {};
@@ -14945,7 +14945,7 @@ function renderUserClone(o, t) {
     alignItems: "center",
     justifyContent: "space-between",
   });
-  pkgTitle.innerHTML = `<div style="display:flex;align-items:center;gap:8px"><span>💼</span> Package Licenses (Managed App Seats)</div><span style="font-size:11.5px;font-weight:600;color:${n.muted}">Select seats to assign</span>`;
+  pkgTitle.innerHTML = `<div style="display:flex;align-items:center;gap:8px"><span>\uE062</span> Package Licenses (Managed App Seats)</div><span style="font-size:11.5px;font-weight:600;color:${n.muted}">Select seats to assign</span>`;
   pkgCard.appendChild(pkgTitle);
 
   const pkgListWrap = rt("div", {
@@ -14990,7 +14990,7 @@ function renderUserClone(o, t) {
         fontSize: "11px",
         color: isFull ? "#ef4444" : n.muted,
         fontWeight: isFull ? "700" : "400",
-      }, isFull ? `⚠️ Full (${seatText})` : `✓ Open seats available (${seatText})`);
+      }, isFull ? `\uE193 Full (${seatText})` : `✓ Open seats available (${seatText})`);
 
       left.appendChild(pName);
       left.appendChild(pSeats);
@@ -15036,7 +15036,7 @@ function renderUserClone(o, t) {
     alignItems: "center",
     gap: "8px",
   });
-  inspectTitle.innerHTML = `<span>🔍</span> 4. Source User Access Breakdown & Preview`;
+  inspectTitle.innerHTML = `<span>\uE151</span> 4. Source User Access Breakdown & Preview`;
   inspectCard.appendChild(inspectTitle);
 
   const inspectContent = rt("div", {
@@ -15064,7 +15064,7 @@ function renderUserClone(o, t) {
     // Profile & Role Row
     const pRow = rt("div", { display: "flex", flexDirection: "column", gap: "4px" });
     pRow.innerHTML = `
-      <div style="font-weight:700;color:${n.text};font-size:13px">👤 Base Profile & Role:</div>
+      <div style="font-weight:700;color:${n.text};font-size:13px">\uE19F Base Profile & Role:</div>
       <div style="font-size:12px;color:${n.muted}">Profile: <b style="color:${n.text}">${selectedSourceUser.Profile?.Name || 'None'}</b> · User License: <b style="color:${n.text}">${selectedSourceUser.Profile?.UserLicense?.Name || 'Standard'}</b> · Role: <b style="color:${n.text}">${selectedSourceUser.UserRole?.Name || 'None'}</b></div>
     `;
     wrap.appendChild(pRow);
@@ -15072,7 +15072,7 @@ function renderUserClone(o, t) {
     // Permission Sets
     if (sourcePermissions.permissionSets.length > 0) {
       const psRow = rt("div", { display: "flex", flexDirection: "column", gap: "6px" });
-      psRow.innerHTML = `<div style="font-weight:700;color:${n.text};font-size:13px">🔑 Permission Sets (${sourcePermissions.permissionSets.length}):</div>`;
+      psRow.innerHTML = `<div style="font-weight:700;color:${n.text};font-size:13px">\uE4A3 Permission Sets (${sourcePermissions.permissionSets.length}):</div>`;
       const psList = rt("div", { display: "flex", flexWrap: "wrap", gap: "6px" });
       sourcePermissions.permissionSets.forEach((ps) => {
         const chip = rt("span", {
@@ -15093,7 +15093,7 @@ function renderUserClone(o, t) {
     // Permission Set Groups
     if (sourcePermissions.permissionSetGroups.length > 0) {
       const psgRow = rt("div", { display: "flex", flexDirection: "column", gap: "6px" });
-      psgRow.innerHTML = `<div style="font-weight:700;color:${n.text};font-size:13px">📦 Permission Set Groups (${sourcePermissions.permissionSetGroups.length}):</div>`;
+      psgRow.innerHTML = `<div style="font-weight:700;color:${n.text};font-size:13px">\uE129 Permission Set Groups (${sourcePermissions.permissionSetGroups.length}):</div>`;
       const psgList = rt("div", { display: "flex", flexWrap: "wrap", gap: "6px" });
       sourcePermissions.permissionSetGroups.forEach((psg) => {
         const chip = rt("span", {
@@ -15114,7 +15114,7 @@ function renderUserClone(o, t) {
     // Package Licenses
     if (sourcePermissions.packageLicenses.length > 0) {
       const pkgRow = rt("div", { display: "flex", flexDirection: "column", gap: "6px" });
-      pkgRow.innerHTML = `<div style="font-weight:700;color:${n.text};font-size:13px">💼 Package Licenses (${sourcePermissions.packageLicenses.length}):</div>`;
+      pkgRow.innerHTML = `<div style="font-weight:700;color:${n.text};font-size:13px">\uE062 Package Licenses (${sourcePermissions.packageLicenses.length}):</div>`;
       const pkgList = rt("div", { display: "flex", flexWrap: "wrap", gap: "6px" });
       sourcePermissions.packageLicenses.forEach((pkg) => {
         const chip = rt("span", {
@@ -15135,7 +15135,7 @@ function renderUserClone(o, t) {
     // Public Groups & Queues
     if (sourcePermissions.groupMemberships.length > 0) {
       const grpRow = rt("div", { display: "flex", flexDirection: "column", gap: "6px" });
-      grpRow.innerHTML = `<div style="font-weight:700;color:${n.text};font-size:13px">👥 Public Groups & Queues (${sourcePermissions.groupMemberships.length}):</div>`;
+      grpRow.innerHTML = `<div style="font-weight:700;color:${n.text};font-size:13px">\uE1A4 Public Groups & Queues (${sourcePermissions.groupMemberships.length}):</div>`;
       const grpList = rt("div", { display: "flex", flexWrap: "wrap", gap: "6px" });
       sourcePermissions.groupMemberships.forEach((gm) => {
         const chip = rt("span", {
@@ -15146,7 +15146,7 @@ function renderUserClone(o, t) {
           color: n.text,
           fontSize: "11.5px",
           fontWeight: "600",
-        }, `${gm.Group?.Type === 'Queue' ? '📮 Queue' : '👥 Group'}: ${gm.Group?.Name || gm.Group?.DeveloperName}`);
+        }, `${gm.Group?.Type === 'Queue' ? '\uE0F7 Queue' : '\uE1A4 Group'}: ${gm.Group?.Name || gm.Group?.DeveloperName}`);
         grpList.appendChild(chip);
       });
       grpRow.appendChild(grpList);
@@ -15301,7 +15301,7 @@ function renderUserClone(o, t) {
     transition: "all 0.15s ease",
     flexShrink: "0",
   });
-  startCloneBtn.innerHTML = `<span>👥</span> Clone & Onboard User`;
+  startCloneBtn.innerHTML = `<span>\uE1A4</span> Clone & Onboard User`;
   startCloneBtn.addEventListener("click", executeUserClone);
   actionRow.appendChild(startCloneBtn);
 
@@ -15469,7 +15469,7 @@ function renderUserClone(o, t) {
 
     startCloneBtn.disabled = true;
     startCloneBtn.style.opacity = "0.6";
-    startCloneBtn.innerHTML = `<span>⏳</span> Cloning in Progress…`;
+    startCloneBtn.innerHTML = `<span>\uE296</span> Cloning in Progress…`;
     progressBox.style.display = "flex";
     resultCard.style.display = "none";
     logTerminal.innerHTML = "";
@@ -15705,7 +15705,7 @@ function renderUserClone(o, t) {
 
       // Finish & Success Notification
       setProgress(100, "User Clone & Onboarding Completed!");
-      logMsg("SUCCESS", `🎉 Onboarding completed for ${targetUserName}!`);
+      logMsg("SUCCESS", `\uE343 Onboarding completed for ${targetUserName}!`);
       t.flashToast(`User ${targetUserName} Cloned Successfully!`);
 
       statusBadge.textContent = "Cloned Successfully";
@@ -15719,7 +15719,7 @@ function renderUserClone(o, t) {
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
           <div>
             <div style="font-size:15px;font-weight:800;color:#10b981;display:flex;align-items:center;gap:6px">
-              <span>🎉</span> User Onboarding & Clone Completed!
+              <span>\uE343</span> User Onboarding & Clone Completed!
             </div>
             <div style="font-size:12.5px;color:${n.text};margin-top:2px">
               Target User: <b>${targetUserName}</b> (ID: ${targetUserId})
@@ -15727,15 +15727,15 @@ function renderUserClone(o, t) {
           </div>
           <div style="display:flex;gap:8px">
             <button id="open-user-btn" style="background:#10b981;color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px">
-              <span>🔗</span> Open User in Salesforce Setup
+              <span>\uE102</span> Open User in Salesforce Setup
             </button>
           </div>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:12px;font-size:11.5px;color:${n.muted};padding-top:6px;border-top:1px solid rgba(16,185,129,0.2)">
-          <span>👤 Profile & Role Configured</span> ·
-          <span>🔑 <b>${clonedPermSetCount}</b> Permission Sets / Groups</span> ·
-          <span>💼 <b>${clonedPkgCount}</b> Package Seats</span> ·
-          <span>👥 <b>${clonedGroupCount}</b> Group & Queue Memberships</span>
+          <span>\uE19F Profile & Role Configured</span> ·
+          <span>\uE4A3 <b>${clonedPermSetCount}</b> Permission Sets / Groups</span> ·
+          <span>\uE062 <b>${clonedPkgCount}</b> Package Seats</span> ·
+          <span>\uE1A4 <b>${clonedGroupCount}</b> Group & Queue Memberships</span>
         </div>
       `;
 
@@ -15756,7 +15756,7 @@ function renderUserClone(o, t) {
       isExecuting = false;
       startCloneBtn.disabled = false;
       startCloneBtn.style.opacity = "1";
-      startCloneBtn.innerHTML = `<span>👥</span> Clone & Onboard User`;
+      startCloneBtn.innerHTML = `<span>\uE1A4</span> Clone & Onboard User`;
     }
   }
 
@@ -15776,7 +15776,7 @@ function renderPermClone(o, t) {
     flexDirection: "column",
     background: n.bg,
     color: n.text,
-    fontFamily: "Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    fontFamily: "'SFPilot Icons', Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
     position: "relative",
   });
   o.appendChild(container);
@@ -15810,7 +15810,7 @@ function renderPermClone(o, t) {
   headerLeft.appendChild(backBtn);
   headerLeft.appendChild(rt("span", { color: n.faint }, "/"));
   headerLeft.appendChild(
-    rt("div", { fontSize: "15px", fontWeight: "800", color: n.text, display: "flex", alignItems: "center", gap: "8px" }, "🧬 Profile & Permission Master Clone")
+    rt("div", { fontSize: "15px", fontWeight: "800", color: n.text, display: "flex", alignItems: "center", gap: "8px" }, "\uE09E Profile & Permission Master Clone")
   );
 
   const switchUserBtn = rt("button", {
@@ -15824,7 +15824,7 @@ function renderPermClone(o, t) {
     cursor: "pointer",
     fontFamily: "inherit",
     marginLeft: "8px",
-  }, "👥 Switch to User Clone");
+  }, "\uE1A4 Switch to User Clone");
   switchUserBtn.addEventListener("click", () => renderUserClone(o, t));
   headerLeft.appendChild(switchUserBtn);
   header.appendChild(headerLeft);
@@ -15979,7 +15979,7 @@ function renderPermClone(o, t) {
     gap: "8px",
     color: n.text,
   });
-  sourceTitle.innerHTML = `<span style="font-size:16px">👤</span> 1. Select Source Security Principal`;
+  sourceTitle.innerHTML = `<span style="font-size:16px">\uE19F</span> 1. Select Source Security Principal`;
   sourceCard.appendChild(sourceTitle);
 
   const sourceSelect = rt("select", {
@@ -16027,7 +16027,7 @@ function renderPermClone(o, t) {
     gap: "8px",
     color: n.text,
   });
-  targetTitle.innerHTML = `<span style="font-size:16px">🎯</span> 2. Target Configuration`;
+  targetTitle.innerHTML = `<span style="font-size:16px">\uE180</span> 2. Target Configuration`;
   targetCard.appendChild(targetTitle);
 
   // Target Mode Tabs (New PermSet vs Existing PermSet)
@@ -16053,7 +16053,7 @@ function renderPermClone(o, t) {
     background: targetMode === "new" ? "#3b82f6" : "transparent",
     color: targetMode === "new" ? "#fff" : n.muted,
     fontFamily: "inherit",
-  }, "🆕 New Permission Set");
+  }, "\uE1A2 New Permission Set");
   targetModeWrap.appendChild(newModeBtn);
 
   const existModeBtn = rt("button", {
@@ -16066,7 +16066,7 @@ function renderPermClone(o, t) {
     background: targetMode === "existing" ? "#3b82f6" : "transparent",
     color: targetMode === "existing" ? "#fff" : n.muted,
     fontFamily: "inherit",
-  }, "🔄 Merge Existing");
+  }, "\uE145 Merge Existing");
   targetModeWrap.appendChild(existModeBtn);
 
   // Target New Form
@@ -16274,7 +16274,7 @@ function renderPermClone(o, t) {
     gap: "8px",
     color: n.text,
   });
-  modulesTitle.innerHTML = `<span style="font-size:16px">⚙️</span> 3. Permission Domains to Clone`;
+  modulesTitle.innerHTML = `<span style="font-size:16px">\uE154</span> 3. Permission Domains to Clone`;
   modulesHeader.appendChild(modulesTitle);
 
   const selectBtns = rt("div", { display: "flex", gap: "8px" });
@@ -16311,10 +16311,10 @@ function renderPermClone(o, t) {
 
   const moduleDefinitions = [
     { key: "objects", icon: "", label: "Object Permissions", desc: "CRUD, View All, Modify All" },
-    { key: "fields", icon: "🔤", label: "Field Permissions", desc: "Field-Level Security (FLS)" },
+    { key: "fields", icon: "\uE198", label: "Field Permissions", desc: "Field-Level Security (FLS)" },
     { key: "system", icon: "", label: "System Permissions", desc: "User & admin boolean flags" },
     { key: "apex", icon: "", label: "Apex Classes", desc: "Apex class access permissions" },
-    { key: "vf", icon: "📄", label: "Visualforce Pages", desc: "Visualforce page accesses" },
+    { key: "vf", icon: "\uE0CC", label: "Visualforce Pages", desc: "Visualforce page accesses" },
     { key: "customPerms", icon: "", label: "Custom Permissions", desc: "Custom platform permissions" },
   ];
 
@@ -16419,7 +16419,7 @@ function renderPermClone(o, t) {
   scopeWrap.appendChild(scopeHeader);
 
   scopeHeader.appendChild(
-    rt("div", { fontSize: "13px", fontWeight: "700", color: n.text, display: "flex", alignItems: "center", gap: "6px" }, "🎯 Object Scoping Filter:")
+    rt("div", { fontSize: "13px", fontWeight: "700", color: n.text, display: "flex", alignItems: "center", gap: "6px" }, "\uE180 Object Scoping Filter:")
   );
 
   const scopeToggleWrap = rt("div", {
@@ -16573,7 +16573,7 @@ function renderPermClone(o, t) {
     gap: "8px",
     color: n.text,
   });
-  previewTitle.innerHTML = `<span style="font-size:16px">🔍</span> 4. Pre-Clone Inspection & Analysis`;
+  previewTitle.innerHTML = `<span style="font-size:16px">\uE151</span> 4. Pre-Clone Inspection & Analysis`;
   previewHeader.appendChild(previewTitle);
 
   // Tabs
@@ -16801,7 +16801,7 @@ function renderPermClone(o, t) {
     transition: "all 0.15s ease",
     flexShrink: "0",
   });
-  startCloneBtn.innerHTML = `<span>⚡</span> Start Master Clone`;
+  startCloneBtn.innerHTML = `<span>\uE1B4</span> Start Master Clone`;
   startCloneBtn.addEventListener("click", executeClone);
   actionRow.appendChild(startCloneBtn);
 
@@ -16896,9 +16896,9 @@ function renderPermClone(o, t) {
     sourceSelect.innerHTML = `<option value="">— Select Source Profile / Permission Set —</option>`;
 
     const profGroup = rt("optgroup");
-    profGroup.label = "👤 Profiles";
+    profGroup.label = "Profiles";
     const permGroup = rt("optgroup");
-    permGroup.label = "🔑 Permission Sets";
+    permGroup.label = "Permission Sets";
 
     securityPrincipals.forEach((p) => {
       const opt = rt("option");
@@ -17389,7 +17389,7 @@ function renderPermClone(o, t) {
       const wrap = rt("div", { padding: "14px", display: "flex", flexDirection: "column", gap: "16px" });
 
       if (apexList.length > 0) {
-        wrap.appendChild(rt("div", { fontSize: "13px", fontWeight: "800", color: n.text }, `⚡ Apex Classes (${apexList.length})`));
+        wrap.appendChild(rt("div", { fontSize: "13px", fontWeight: "800", color: n.text }, `\uE1B4 Apex Classes (${apexList.length})`));
         const apexGrid = rt("div", { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "8px" });
         apexList.forEach((cls) => {
           const item = rt("div", {
@@ -17407,7 +17407,7 @@ function renderPermClone(o, t) {
       }
 
       if (vfList.length > 0) {
-        wrap.appendChild(rt("div", { fontSize: "13px", fontWeight: "800", color: n.text }, `📄 Visualforce Pages (${vfList.length})`));
+        wrap.appendChild(rt("div", { fontSize: "13px", fontWeight: "800", color: n.text }, `\uE0CC Visualforce Pages (${vfList.length})`));
         const vfGrid = rt("div", { display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "8px" });
         vfList.forEach((pg) => {
           const item = rt("div", {
@@ -17448,7 +17448,7 @@ function renderPermClone(o, t) {
           border: `1px solid ${n.border}`,
         });
         item.innerHTML = `
-          <div style="font-size:12.5px;font-weight:700;color:${n.text}">🔑 ${cp.label || cp.name}</div>
+          <div style="font-size:12.5px;font-weight:700;color:${n.text}">\uE4A3 ${cp.label || cp.name}</div>
           <div style="font-size:11px;color:${n.muted};font-family:monospace">${cp.name}</div>
         `;
         grid.appendChild(item);
@@ -17464,7 +17464,7 @@ function renderPermClone(o, t) {
 
     startCloneBtn.disabled = true;
     startCloneBtn.style.opacity = "0.6";
-    startCloneBtn.innerHTML = `<span>⏳</span> Cloning in Progress…`;
+    startCloneBtn.innerHTML = `<span>\uE296</span> Cloning in Progress…`;
     progressBox.style.display = "flex";
     resultCard.style.display = "none";
     logTerminal.innerHTML = "";
@@ -17695,7 +17695,7 @@ function renderPermClone(o, t) {
       }
 
       setProgress(100, "Clone completed successfully!");
-      logMsg("SUCCESS", `🎉 Master Clone completed for ${targetLabel}!`);
+      logMsg("SUCCESS", `\uE343 Master Clone completed for ${targetLabel}!`);
       t.flashToast("Master Clone Completed Successfully!");
 
       statusBadge.textContent = "Cloned Successfully";
@@ -17710,7 +17710,7 @@ function renderPermClone(o, t) {
         <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
           <div>
             <div style="font-size:15px;font-weight:800;color:#10b981;display:flex;align-items:center;gap:6px">
-              <span>🎉</span> Master Clone Completed!
+              <span>\uE343</span> Master Clone Completed!
             </div>
             <div style="font-size:12.5px;color:${n.text};margin-top:2px">
               Target Permission Set: <b>${targetLabel}</b>
@@ -17718,15 +17718,15 @@ function renderPermClone(o, t) {
           </div>
           <div style="display:flex;gap:8px">
             <button id="open-setup-btn" style="background:#10b981;color:#fff;border:none;border-radius:6px;padding:7px 14px;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:6px">
-              <span>🔗</span> Open in Salesforce Setup
+              <span>\uE102</span> Open in Salesforce Setup
             </button>
           </div>
         </div>
         <div style="display:flex;flex-wrap:wrap;gap:12px;font-size:11.5px;color:${n.muted};padding-top:6px;border-top:1px solid rgba(16,185,129,0.2)">
-          <span>📦 <b>${clonedObjectsCount}</b> Object Permissions</span> ·
-          <span>🔤 <b>${clonedFieldsCount}</b> Field Permissions</span> ·
-          <span>⚙️ <b>${clonedSystemCount}</b> System Flags</span> ·
-          <span>⚡ <b>${clonedSetupCount}</b> Code Accesses</span>
+          <span>\uE129 <b>${clonedObjectsCount}</b> Object Permissions</span> ·
+          <span>\uE198 <b>${clonedFieldsCount}</b> Field Permissions</span> ·
+          <span>\uE154 <b>${clonedSystemCount}</b> System Flags</span> ·
+          <span>\uE1B4 <b>${clonedSetupCount}</b> Code Accesses</span>
         </div>
       `;
 
@@ -17747,7 +17747,7 @@ function renderPermClone(o, t) {
       isExecuting = false;
       startCloneBtn.disabled = false;
       startCloneBtn.style.opacity = "1";
-      startCloneBtn.innerHTML = `<span>⚡</span> Start Master Clone`;
+      startCloneBtn.innerHTML = `<span>\uE1B4</span> Start Master Clone`;
     }
   }
 
@@ -17834,7 +17834,7 @@ function yp(o, t) {
     }),
     a = Qe("div", { display: "flex", flexDirection: "column" });
   (a.appendChild(
-    Qe("div", { fontSize: "16px", fontWeight: "800" }, "🧪 Apex Tests"),
+    Qe("div", { fontSize: "16px", fontWeight: "800" }, "\uE0D5 Apex Tests"),
   ),
     a.appendChild(
       Qe(
@@ -19023,7 +19023,7 @@ function ws(o, t) {
     Ze(
       "div",
       { fontSize: "15px", fontWeight: "800", color: n.text },
-      "🗺️ Access Explorer",
+      "\uE110 Access Explorer",
     ),
   ),
     i.appendChild(s));
@@ -19809,7 +19809,7 @@ function Sp(o, t) {
     k.appendChild(c),
     k.appendChild(qe("span", { color: n.faint }, "/")),
     k.appendChild(
-      qe("div", { fontSize: "15px", fontWeight: "800" }, "⬆️ Data Import"),
+      qe("div", { fontSize: "15px", fontWeight: "800" }, "\uE04A Data Import"),
     ),
     a.appendChild(k));
   const O = qe("div", {
@@ -19974,7 +19974,7 @@ function Sp(o, t) {
         fontSize: "11.5px",
         marginLeft: "auto",
       },
-      "📁 Load file",
+      "\uE247 Load file",
     ),
     be = qe("input", { display: "none" });
   ((be.type = "file"),
@@ -20382,7 +20382,7 @@ function Sp(o, t) {
       const h = qe(
         "button",
         { ...s("transparent", n.text), padding: "6px 12px", fontSize: "12px" },
-        "⬇ Export",
+        "\uE042 Export",
       );
       (h.addEventListener("click", () => Ve(fe, me)), de.appendChild(h));
     }
@@ -20525,7 +20525,7 @@ function Sp(o, t) {
         qe(
           "div",
           { padding: "18px 20px 10px", fontSize: "16px", fontWeight: "800" },
-          `${de ? "⚠️ " : ""}Confirm ${Ie}`,
+          `${de ? "\uE193 " : ""}Confirm ${Ie}`,
         ),
       );
       const _e = qe("div", {
@@ -20838,7 +20838,7 @@ function wp(o, t) {
       _t(
         "div",
         { fontSize: "15px", fontWeight: "800", color: n.text },
-        "📈 Org Status",
+        "\uE191 Org Status",
       ),
     ));
   const l = _t(
@@ -20935,7 +20935,7 @@ function wp(o, t) {
       color: n.muted,
       fontWeight: "600",
     },
-    "⚠ Near limit (>50%)",
+    "\uE193 Near limit (>50%)",
   );
   (N.addEventListener("click", () => {
     ((b = !b),
@@ -21375,7 +21375,7 @@ function Lp(o, t) {
     color: e.text,
   });
   o.appendChild(n);
-  const { head: i } = Wo(e, "🧱 New Custom Object", t.onBack, "Object Manager");
+  const { head: i } = Wo(e, "\uE4FA New Custom Object", t.onBack, "Object Manager");
   n.appendChild(i);
   const s = $e("div", {
     flex: "1",
@@ -21570,7 +21570,7 @@ function Lp(o, t) {
             Le(q.error || "Object creation failed.");
             return;
           }
-          (t.flashToast?.(`✅ ${ue} (${K}) created`), t.onCreated(K, ue));
+          (t.flashToast?.(`\uE226 ${ue} (${K}) created`), t.onCreated(K, ue));
         }));
     }));
 }
@@ -21578,28 +21578,28 @@ const Ap = [
     {
       type: "AutoNumber",
       label: "Auto Number",
-      icon: "🔢",
+      icon: "\uE0EF",
       desc: "System-generated sequence number",
       settings: ["autoNumber", "externalId"],
     },
     {
       type: "Formula",
       label: "Formula",
-      icon: "🧮",
+      icon: "\uE1BC",
       desc: "Read-only value derived from other fields",
       settings: ["formula"],
     },
     {
       type: "Lookup",
       label: "Lookup Relationship",
-      icon: "🔗",
+      icon: "\uE102",
       desc: "Links this object to another object",
       settings: ["lookup", "required"],
     },
     {
       type: "MasterDetail",
       label: "Master-Detail Relationship",
-      icon: "⛓️",
+      icon: "\uE103",
       desc: "Parent-child relationship with rollups",
       settings: ["masterDetail"],
     },
@@ -21613,7 +21613,7 @@ const Ap = [
     {
       type: "Currency",
       label: "Currency",
-      icon: "💰",
+      icon: "\uE47D",
       desc: "Money amount in the org currency",
       settings: ["precisionScale", "required", "defaultValue"],
       defaults: { precision: 16, scale: 2 },
@@ -21621,28 +21621,28 @@ const Ap = [
     {
       type: "Date",
       label: "Date",
-      icon: "📅",
+      icon: "\uE063",
       desc: "Calendar date picker",
       settings: ["required", "defaultValue"],
     },
     {
       type: "DateTime",
       label: "Date/Time",
-      icon: "🕐",
+      icon: "\uE087",
       desc: "Date and time picker",
       settings: ["required", "defaultValue"],
     },
     {
       type: "Email",
       label: "Email",
-      icon: "✉️",
+      icon: "\uE10F",
       desc: "Validated email address",
       settings: ["required", "unique", "externalId", "defaultValue"],
     },
     {
       type: "Location",
       label: "Geolocation",
-      icon: "📍",
+      icon: "\uE111",
       desc: "Latitude and longitude",
       settings: ["geolocation"],
       defaults: { scale: 5 },
@@ -21672,21 +21672,21 @@ const Ap = [
     {
       type: "Phone",
       label: "Phone",
-      icon: "📞",
+      icon: "\uE133",
       desc: "Formatted phone number",
       settings: ["required", "defaultValue"],
     },
     {
       type: "Picklist",
       label: "Picklist",
-      icon: "📋",
+      icon: "\uE086",
       desc: "Select one value from a list",
       settings: ["picklist", "required"],
     },
     {
       type: "MultiselectPicklist",
       label: "Picklist (Multi-Select)",
-      icon: "📚",
+      icon: "\uE100",
       desc: "Select multiple values from a list",
       settings: ["picklist", "visibleLines", "required"],
       defaults: { visibleLines: 4 },
@@ -21694,7 +21694,7 @@ const Ap = [
     {
       type: "Text",
       label: "Text",
-      icon: "🔤",
+      icon: "\uE198",
       desc: "Up to 255 characters",
       settings: ["length", "required", "unique", "externalId", "defaultValue"],
       defaults: { length: 255 },
@@ -21702,14 +21702,14 @@ const Ap = [
     {
       type: "TextArea",
       label: "Text Area",
-      icon: "📝",
+      icon: "\uE596",
       desc: "Up to 255 characters, multiple lines",
       settings: ["required"],
     },
     {
       type: "LongTextArea",
       label: "Text Area (Long)",
-      icon: "📄",
+      icon: "\uE0CC",
       desc: "Up to 131,072 characters",
       settings: ["length", "visibleLines"],
       defaults: { length: 32768, visibleLines: 3 },
@@ -21717,7 +21717,7 @@ const Ap = [
     {
       type: "Html",
       label: "Text Area (Rich)",
-      icon: "🎨",
+      icon: "\uE1DD",
       desc: "Formatted text with images and links",
       settings: ["length", "visibleLines"],
       defaults: { length: 32768, visibleLines: 10 },
@@ -21725,14 +21725,14 @@ const Ap = [
     {
       type: "Time",
       label: "Time",
-      icon: "⏰",
+      icon: "\uE03A",
       desc: "Time of day without a date",
       settings: ["required"],
     },
     {
       type: "Url",
       label: "URL",
-      icon: "🌐",
+      icon: "\uE0E8",
       desc: "Clickable hyperlink",
       settings: ["required", "defaultValue"],
     },
@@ -21885,7 +21885,7 @@ function Dp(o, t) {
   o.appendChild(n);
   const { head: i, right: s } = Wo(
     e,
-    "🧩 New Fields",
+    "\uE29C New Fields",
     t.onBack,
     "Object Manager",
   );
@@ -21962,7 +21962,7 @@ function Dp(o, t) {
           color: e.text,
         });
         (Z.appendChild(
-          $e("span", { fontSize: "16px" }, V.custom ? "🧱" : "📦"),
+          $e("span", { fontSize: "16px" }, V.custom ? "\uE4FA" : "\uE129"),
         ),
           Z.appendChild(
             $e("span", { fontSize: "13px", fontWeight: "700" }, V.label),
@@ -22425,9 +22425,9 @@ function Dp(o, t) {
             }),
             De =
               X.status === "ok"
-                ? "✅"
+                ? "\uE226"
                 : X.status === "error"
-                  ? "❌"
+                  ? "\uE084"
                   : X.def.icon;
           se.appendChild($e("span", { fontSize: "16px" }, De));
           const Be = $e("div", { flex: "1", minWidth: "0" });
@@ -22522,11 +22522,11 @@ function Dp(o, t) {
           L.show(
             re
               ? `${X} field(s) created, ${re} failed — fix and retry, or continue to FLS for the created ones.`
-              : `✅ All ${X} field(s) created on ${c.label}. Grant field-level security next — without it, only admins can see these fields.`,
+              : `\uE226 All ${X} field(s) created on ${c.label}. Grant field-level security next — without it, only admins can see these fields.`,
             re ? "error" : "success",
           ),
           t.flashToast?.(
-            re ? `${X} created · ${re} failed` : `✅ ${X} field(s) created`,
+            re ? `${X} created · ${re} failed` : `\uE226 ${X} field(s) created`,
           ));
       }));
   }
@@ -22607,7 +22607,7 @@ function Dp(o, t) {
         ge.forEach((ue) => {
           const Me = Pt(
             e,
-            `${ue.isProfile ? "👤" : "🔑"} ${ue.label}${ue.isProfile ? "  ·  Profile" : ""}`,
+            `${ue.isProfile ? "\uE19F" : "\uE4A3"} ${ue.label}${ue.isProfile ? "  ·  Profile" : ""}`,
             Z.has(ue.id),
           );
           ((Me.wrap.style.display = "flex"),
@@ -22675,10 +22675,10 @@ function Dp(o, t) {
             const ue = ge.failed || [];
             ue.length === 0
               ? (D.show(
-                  `✅ Access granted: ${ge.granted} permission(s) written.`,
+                  `\uE226 Access granted: ${ge.granted} permission(s) written.`,
                   "success",
                 ),
-                t.flashToast?.("✅ Field-level security granted"))
+                t.flashToast?.("\uE226 Field-level security granted"))
               : D.show(
                   `${ge.granted} granted, ${ue.length} skipped:
 ${ue.slice(0, 5).map((Me) => `· ${Me.error || "unknown error"}`).join(`
@@ -22711,7 +22711,7 @@ function Mp(o, t, e) {
     color: n.text,
   });
   o.appendChild(i);
-  const { head: s } = Wo(n, "🛠️ Object Manager", t.onBack);
+  const { head: s } = Wo(n, "\uE1B1 Object Manager", t.onBack);
   i.appendChild(s);
   const a = $e("div", {
     flex: "1",
@@ -22830,7 +22830,7 @@ function Pp(o, t) {
     color: e.text,
   });
   o.appendChild(n);
-  const { head: i, right: s } = Wo(e, "🧭 Automation Map", t.onBack);
+  const { head: i, right: s } = Wo(e, "\uE09B Automation Map", t.onBack);
   n.appendChild(i);
   const a = Ht(e, "Change object");
   ((a.style.display = "none"), s.appendChild(a));
@@ -22911,7 +22911,7 @@ function Pp(o, t) {
           color: e.text,
         });
         (x.appendChild(
-          $e("span", { fontSize: "16px" }, c.custom ? "🧱" : "📦"),
+          $e("span", { fontSize: "16px" }, c.custom ? "\uE4FA" : "\uE129"),
         ),
           x.appendChild(
             $e("span", { fontSize: "13px", fontWeight: "700" }, c.label),
@@ -23097,7 +23097,7 @@ function Pp(o, t) {
                     : ye === "RecordAfterSave" && u !== "delete" && re(Me);
             })
             .map((Me) => ({
-              icon: ue === "process" ? "🧷" : "🌊",
+              icon: ue === "process" ? "\uE0E2" : "\uE425",
               name: Ft(Me.Label) || Ft(Me.ApiName),
               detail:
                 ue === "process"
@@ -23142,7 +23142,7 @@ function Pp(o, t) {
                   step: 3,
                   title: "Validation rules",
                   items: (Z.validations.records || []).map((ue) => ({
-                    icon: "🛡️",
+                    icon: "\uE158",
                     name: Ft(ue.ValidationName),
                     detail: Ft(ue.ErrorMessage),
                     active: ue.Active === !0,
@@ -23156,7 +23156,7 @@ function Pp(o, t) {
                   title: "Duplicate rules",
                   items: Be(
                     Z.dupRules,
-                    "👥",
+                    "\uE1A4",
                     "MasterLabel",
                     "IsActive",
                     "DuplicateRules",
@@ -23178,7 +23178,7 @@ function Pp(o, t) {
                   title: "Assignment rules",
                   items: Be(
                     Z.assignment,
-                    "📮",
+                    "\uE0F7",
                     "Name",
                     "Active",
                     r.apiName === "Lead" ? "LeadRules" : "CaseRules",
@@ -23190,7 +23190,7 @@ function Pp(o, t) {
                   title: "Auto-response rules",
                   items: [
                     De(
-                      "📧",
+                      "\uE10F",
                       "View auto-response rules in Setup",
                       r.apiName === "Lead" ? "LeadResponses" : "CaseResponses",
                     ),
@@ -23206,7 +23206,7 @@ function Pp(o, t) {
                   title: "Workflow rules",
                   items: Be(
                     Z.workflows,
-                    "🔁",
+                    "\uE146",
                     "Name",
                     "Active",
                     "WorkflowRules",
@@ -23228,7 +23228,7 @@ function Pp(o, t) {
                   step: 10,
                   title: "Escalation rules",
                   items: [
-                    De("🚨", "View escalation rules in Setup", "CaseEscRules"),
+                    De("\uE2EF", "View escalation rules in Setup", "CaseEscRules"),
                   ],
                   note: "Not queryable via API — opens the Setup list",
                 },
@@ -23738,7 +23738,7 @@ function Bp(o, t) {
             },
             L,
           ),
-        c = k("🔬 Open in Log Analyzer", !0);
+        c = k("\uE2E4 Open in Log Analyzer", !0);
       c.addEventListener("click", () => t.renderAnalyzer(o, b, F, d));
       const O = k("Copy log");
       O.addEventListener("click", () =>
@@ -23831,7 +23831,7 @@ function zp(o, t) {
         fontWeight: "800",
         flexShrink: "0",
       },
-      "⚡",
+      "\uE1B4",
     ),
     y = ft("div", { minWidth: "0", flex: "1" }),
     g = ft(
@@ -23992,12 +23992,12 @@ function zp(o, t) {
       Z.addEventListener("click", C),
       x.appendChild(Z));
   };
-  (L("🐞", "Fetch logs", () => t.goToTab("debug")),
-    L("🧪", "Bulk Sample Data", () => t.openTool("sampledata")),
-    L("⚡", "Run Apex", () => t.openTool("executeanonymous")),
-    L("📈", "Org limits", () => t.openTool("orglimits")),
-    L("🧭", "Automation map", () => t.openTool("automationmap")),
-    L("🛠️", "All tools", () => t.goToTab("tools")),
+  (L("\uE20C", "Fetch logs", () => t.goToTab("debug")),
+    L("\uE0D5", "Bulk Sample Data", () => t.openTool("sampledata")),
+    L("\uE1B4", "Run Apex", () => t.openTool("executeanonymous")),
+    L("\uE191", "Org limits", () => t.openTool("orglimits")),
+    L("\uE09B", "Automation map", () => t.openTool("automationmap")),
+    L("\uE1B1", "All tools", () => t.goToTab("tools")),
     i.appendChild(a("Recent")));
   const D = ft("div", {
     border: `1px solid ${n.border}`,
@@ -24017,7 +24017,7 @@ function zp(o, t) {
           borderTop: V === 0 ? "none" : `1px solid ${n.border}`,
         });
         C.appendChild(
-          ft("span", { fontSize: "16px", flexShrink: "0" }, $.icon || "🔗"),
+          ft("span", { fontSize: "16px", flexShrink: "0" }, $.icon || "\uE102"),
         );
         const Z = ft("div", { minWidth: "0", flex: "1" });
         (Z.appendChild(
@@ -24165,26 +24165,26 @@ const xo = (o) => `'${o.replace(/\\/g, "\\\\").replace(/'/g, "\\'")}'`,
   jp = (o) => {
     const t = (o || "").toLowerCase();
     return t.includes("apexclass")
-      ? "🧩"
+      ? "\uE29C"
       : t.includes("apextrigger")
-        ? "⚙️"
+        ? "\uE154"
         : t.includes("flow")
-          ? "⚡"
+          ? "\uE1B4"
           : t.includes("validation")
-            ? "✅"
+            ? "\uE226"
             : t.includes("field")
-              ? "🏷️"
+              ? "\uE17F"
               : t.includes("layout")
-                ? "📄"
+                ? "\uE0CC"
                 : t.includes("lightning") || t.includes("aura")
-                  ? "🔆"
+                  ? "\uE1F9"
                   : t.includes("report")
-                    ? "📊"
+                    ? "\uE2A3"
                     : t.includes("permission")
-                      ? "🔑"
+                      ? "\uE4A3"
                       : t.includes("object") || t.includes("entity")
-                        ? "📦"
-                        : "🔗";
+                        ? "\uE129"
+                        : "\uE102";
   };
 function Hp(o, t) {
   const e = t.isDark,
@@ -24209,7 +24209,7 @@ function Hp(o, t) {
   });
   o.appendChild(i);
 
-  // Top Header (← Tools | 🔎 Where Used | Find everything that references a component)
+  // Top Header (← Tools | \uE151 Where Used | Find everything that references a component)
   const s = It("div", {
       display: "flex",
       alignItems: "center",
@@ -24238,7 +24238,7 @@ function Hp(o, t) {
 
   const l = It("div", { display: "flex", flexDirection: "column" });
   l.appendChild(
-    It("div", { fontSize: "16px", fontWeight: "800" }, "🔎 Where Used"),
+    It("div", { fontSize: "16px", fontWeight: "800" }, "\uE151 Where Used"),
   );
   l.appendChild(
     It(
@@ -24726,7 +24726,7 @@ function Hp(o, t) {
               cursor: "pointer",
               textDecoration: "none",
             },
-            "🔗 Open",
+            "\uE102 Open",
           );
           sfLink.addEventListener("click", () => {
             const relUrl = getSalesforceSetupUrl(typeName, itemName, itemId);
@@ -24747,7 +24747,7 @@ function Hp(o, t) {
               fontSize: "12px",
               padding: "2px 4px",
             },
-            "📋",
+            "\uE086",
           );
           copyBtn.title = "Copy name";
           copyBtn.addEventListener("click", () => {
@@ -24940,7 +24940,7 @@ function Gp(o, t) {
   const b = dt("div", { display: "flex", flexDirection: "column" }),
     N = dt("div", { display: "flex", alignItems: "center", gap: "8px" });
   (N.appendChild(
-    dt("div", { fontSize: "16px", fontWeight: "800" }, "🧪 REST Explorer"),
+    dt("div", { fontSize: "16px", fontWeight: "800" }, "\uE0D5 REST Explorer"),
   ),
     N.appendChild(
       dt(
@@ -25276,7 +25276,7 @@ function Gp(o, t) {
       background: n.panel,
       padding: "0 8px",
     });
-  z.appendChild(dt("span", { fontSize: "13px", color: n.faint }, "💾"));
+  z.appendChild(dt("span", { fontSize: "13px", color: n.faint }, "\uE14D"));
   const M = dt("input", {
     border: "none",
     background: "transparent",
@@ -25551,7 +25551,7 @@ function tu() {
         gap: "12px",
         alignItems: "flex-end",
         pointerEvents: "none",
-        fontFamily: "Inter, system-ui, sans-serif",
+        fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
         maxWidth: "380px",
       }),
       !document.getElementById("sf-toast-styles"))
@@ -25773,7 +25773,7 @@ function lu(o, t) {
   (N.addEventListener("click", t.onBack), b.appendChild(N));
   const F = Je("div", { display: "flex", flexDirection: "column" });
   (F.appendChild(
-    Je("div", { fontSize: "16px", fontWeight: "800" }, "⚡ Flow Manager"),
+    Je("div", { fontSize: "16px", fontWeight: "800" }, "\uE1B4 Flow Manager"),
   ),
     F.appendChild(
       Je(
@@ -26641,7 +26641,7 @@ function ru(o, t) {
   (E.addEventListener("click", t.onBack), r.appendChild(E));
   const u = lt("div", { display: "flex", flexDirection: "column" });
   (u.appendChild(
-    lt("div", { fontSize: "16px", fontWeight: "800" }, "✅ Validation Rules"),
+    lt("div", { fontSize: "16px", fontWeight: "800" }, "\uE226 Validation Rules"),
   ),
     u.appendChild(
       lt(
@@ -27845,7 +27845,7 @@ function uu(o, t) {
       );
       dragHandle.title = "Drag to reorder";
       middleContainer.appendChild(dragHandle);
-      middleContainer.appendChild(Fe("span", void 0, S.icon || "🛠️"));
+      middleContainer.appendChild(Fe("span", void 0, S.icon || "\uE1B1"));
       const textContainer = Fe("div", { display: "flex", flexDirection: "column", fontWeight: "normal" });
       textContainer.appendChild(Fe("span", { fontWeight: "700", color: n.text }, S.label || S.id));
       textContainer.appendChild(Fe("span", { fontSize: "11px", color: n.muted }, S.desc || ""));
@@ -27863,7 +27863,7 @@ function uu(o, t) {
           color: S.isPinned ? n.accent : n.faint,
           fontSize: "13px",
         },
-        S.isPinned ? "👁" : "🚫",
+        S.isPinned ? "\uE0BA" : "\uE0BB",
       );
       viewButton.title = S.isPinned ? "Hide from Quick Actions" : "Show in Quick Actions";
       viewButton.addEventListener("click", () => {
@@ -27902,7 +27902,7 @@ function uu(o, t) {
     const browseDragHandle = Fe("span", { color: n.faint, userSelect: "none", fontSize: "13px", letterSpacing: "-1px" }, "⠿");
     browseDragHandle.style.cursor = "not-allowed";
     browseMiddle.appendChild(browseDragHandle);
-    browseMiddle.appendChild(Fe("span", void 0, "🛠️"));
+    browseMiddle.appendChild(Fe("span", void 0, "\uE1B1"));
     const browseTextContainer = Fe("div", { display: "flex", flexDirection: "column", fontWeight: "normal" });
     browseTextContainer.appendChild(Fe("span", { fontWeight: "700", color: n.text }, "Browse all tools"));
     browseTextContainer.appendChild(Fe("span", { fontSize: "11px", color: n.muted }, "Access the full tools directory"));
@@ -27921,7 +27921,7 @@ function uu(o, t) {
         fontSize: "13px",
         opacity: "0.6",
       },
-      "🚫",
+      "\uE0BB",
     );
     browseViewButton.title = "Cannot hide this action";
     browseRight.appendChild(browseViewButton);
@@ -27998,7 +27998,7 @@ function uu(o, t) {
       ));
     const p = Fe("div", { marginTop: "16px" });
     (p.appendChild(
-      Z("🗑  Clear cache", "danger", () => {
+      Z("\uE18E  Clear cache", "danger", () => {
         (t.clearMetadataCache?.(), be());
       }),
     ),
@@ -28094,7 +28094,7 @@ function uu(o, t) {
     }
     const H = Fe("div", { marginTop: "18px" });
     (H.appendChild(
-      Z("🗑  Clear history", "danger", async () => {
+      Z("\uE18E  Clear history", "danger", async () => {
         (await gp([Mt.recents]), be());
       }),
     ),
@@ -28119,7 +28119,7 @@ function uu(o, t) {
       padding: "26px 0",
       color: n.muted,
     });
-    (H.appendChild(Fe("div", { fontSize: "26px", opacity: "0.5" }, "✅")),
+    (H.appendChild(Fe("div", { fontSize: "26px", opacity: "0.5" }, "\uE226")),
       H.appendChild(
         Fe(
           "div",
@@ -28613,7 +28613,7 @@ function uu(o, t) {
             color: oe ? n.faint : n.accent,
             fontSize: "13px",
           },
-          oe ? "🚫" : "👁",
+          oe ? "\uE0BB" : "\uE0BA",
         );
       ((Ne.title = oe ? "Show tab" : "Hide tab"),
         Ne.addEventListener("click", () => {
@@ -28670,7 +28670,7 @@ function uu(o, t) {
           flexShrink: "0",
           fontSize: "17px",
         },
-        "🛡",
+        "\uE158",
       ),
       p = re(
         "No data collected",
@@ -28699,7 +28699,7 @@ function uu(o, t) {
       padding: "14px 16px",
       marginBottom: "16px",
     });
-    Q.appendChild(Fe("span", { fontSize: "17px", flexShrink: "0" }, "⚠️"));
+    Q.appendChild(Fe("span", { fontSize: "17px", flexShrink: "0" }, "\uE193"));
     const S = Fe("div");
     (S.appendChild(
       Fe(
@@ -28963,7 +28963,7 @@ function uu(o, t) {
     });
     testBtn.addEventListener("click", async () => {
       const key = apiKeyInput.value.trim();
-      if (!key) return (aiHint.textContent = "⚠ Enter an API key first.");
+      if (!key) return (aiHint.textContent = "\uE193 Enter an API key first.");
       testBtn.disabled = !0;
       testBtn.textContent = "Testing…";
       try {
@@ -28973,9 +28973,9 @@ function uu(o, t) {
           apiKey: key,
           maxTokens: 16,
         });
-        aiHint.textContent = "✅ Key works.";
+        aiHint.textContent = "\uE226 Key works.";
       } catch (err) {
-        aiHint.textContent = `❌ ${err.message}`;
+        aiHint.textContent = `\uE084 ${err.message}`;
       } finally {
         testBtn.disabled = !1;
         testBtn.textContent = "Test key";
@@ -29129,12 +29129,12 @@ function uu(o, t) {
       p.appendChild(A));
     const clearBlock = Fe("div", { marginTop: "16px", display: "flex", gap: "12px" });
     (clearBlock.appendChild(
-      Z("🗑  Clear query history", "danger", () => {
+      Z("\uE18E  Clear query history", "danger", () => {
         confirm("Are you sure you want to clear your SOQL query history?") && ((fn = []), Hu(), be());
       }),
     ),
       clearBlock.appendChild(
-        Z("🗑  Clear saved queries", "danger", () => {
+        Z("\uE18E  Clear saved queries", "danger", () => {
           confirm("Are you sure you want to clear all saved SOQL queries?") && ((cn = []), ju(), be());
         }),
       ),
@@ -29214,7 +29214,7 @@ function uu(o, t) {
         padding: "10px 13px",
         margin: "12px 0 4px",
       });
-    (p.appendChild(Fe("span", { fontSize: "14px", flexShrink: "0" }, "⚠️")),
+    (p.appendChild(Fe("span", { fontSize: "14px", flexShrink: "0" }, "\uE193")),
       p.appendChild(
         Fe(
           "div",
@@ -29346,7 +29346,7 @@ function uu(o, t) {
           );
         q(Re, "Auth Info", de.sessionId ? ke : "");
       });
-      const Ie = Y("🗑", "Remove this org", !0);
+      const Ie = Y("\uE18E", "Remove this org", !0);
       (Ie.addEventListener("click", async () => {
         ((y = y.filter((de) => de.host !== Se.host)),
           await kn(Mt.sessions, y),
@@ -29369,10 +29369,10 @@ function uu(o, t) {
       ),
     );
     const H = [
-        ["SOQL queries", d.soql, "🧾"],
-        ["Debug logs", d.debugLogs, "🐞"],
-        ["Rules updated", d.rulesUpdated, "🔀"],
-        ["Apex tests", d.apexTests, "✅"],
+        ["SOQL queries", d.soql, "\uE3D3"],
+        ["Debug logs", d.debugLogs, "\uE20C"],
+        ["Rules updated", d.rulesUpdated, "\uE15E"],
+        ["Apex tests", d.apexTests, "\uE226"],
       ],
       p = Fe("div", {
         display: "grid",
@@ -29426,7 +29426,7 @@ function uu(o, t) {
       ));
     const A = Fe("div", { display: "flex", gap: "10px" });
     (A.appendChild(
-      Z("❤  Leave a review", "primary", () =>
+      Z("\uE0F2  Leave a review", "primary", () =>
         ks(
           "https://chromewebstore.google.com/detail/sf-spotlight/pimcahebopafaacgibleicnlffadcnoj?hl=en-GB&utm_source=ext_sidebar",
         ),
@@ -29499,7 +29499,7 @@ function fu(o, t) {
     ct(
       "div",
       { fontSize: "16px", fontWeight: "800" },
-      "📡 Event Monitor (Beta)",
+      "\uE404 Event Monitor (Beta)",
     ),
   ),
     g.appendChild(
@@ -30291,7 +30291,7 @@ function Cu(o, t) {
     inset: "0",
     zIndex: yu,
     pointerEvents: "none",
-    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+    fontFamily: '"SFPilot Icons", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   }),
     document.body.appendChild(i));
   const s = document.createElement("div");
@@ -30317,7 +30317,7 @@ function Cu(o, t) {
     l = o.length;
   s.appendChild(
     Os(
-      `🔍 ${l} component${l === 1 ? "" : "s"} on this page` +
+      `\uE151 ${l} component${l === 1 ? "" : "s"} on this page` +
         (l ? ` · ${a} editable` : ""),
     ),
   );
@@ -30402,7 +30402,7 @@ function Cu(o, t) {
         opacity: "0.95",
         flexShrink: "0",
       }),
-        (L.textContent = F.editable ? "✎" : "🔒"));
+        (L.textContent = F.editable ? "✎" : "\uE10B"));
       const D = document.createElement("span");
       if (
         (Object.assign(D.style, {
@@ -30498,7 +30498,7 @@ function Su(o, t) {
       color: n.text,
       borderLeft: `1px solid ${n.border}`,
       boxShadow: "-12px 0 32px rgba(0,0,0,0.28)",
-      fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      fontFamily: '"SFPilot Icons", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
     });
   s.className = "sf-lwc-viewer";
   const a = document.createElement("style");
@@ -30520,7 +30520,7 @@ function Su(o, t) {
     borderBottom: `1px solid ${n.border}`,
     flexShrink: "0",
   });
-  l.appendChild(Et("span", { fontSize: "15px" }, o.editable ? "🔆" : "🔒"));
+  l.appendChild(Et("span", { fontSize: "15px" }, o.editable ? "\uE1F9" : "\uE10B"));
   const d = Et("div", {
     display: "flex",
     flexDirection: "column",
@@ -30901,7 +30901,7 @@ function Su(o, t) {
             ((re = j),
               j === !1
                 ? r(
-                    "⚠ Production org — saving deploys this change live to all users.",
+                    "\uE193 Production org — saving deploys this change live to all users.",
                     "warn",
                   )
                 : j === !0 &&
@@ -30912,7 +30912,7 @@ function Su(o, t) {
           })
         : re === !1 &&
           r(
-            "⚠ Production org — saving deploys this change live to all users.",
+            "\uE193 Production org — saving deploys this change live to all users.",
             "warn",
           ));
   }
@@ -30988,7 +30988,7 @@ function Su(o, t) {
       Et(
         "div",
         { fontSize: "14px", fontWeight: "800", marginBottom: "8px" },
-        q ? "⚠ Deploy to PRODUCTION?" : "Deploy this change?",
+        q ? "\uE193 Deploy to PRODUCTION?" : "Deploy this change?",
       ),
     ),
       G.appendChild(
@@ -31225,7 +31225,7 @@ function Ru(o, t) {
       Nt(
         "div",
         { fontSize: "15px", fontWeight: "800", color: n.text },
-        "🔖 Custom Shortcuts",
+        "\uE060 Custom Shortcuts",
       ),
     ),
     i.appendChild(s));
@@ -31453,7 +31453,7 @@ function Ru(o, t) {
       re.addEventListener("click", () => window.open(vi($.url), "_blank"));
       const se = X("✎", "Edit", n.accent);
       se.addEventListener("click", () => L($));
-      const De = X("🗑", "Delete", n.danger);
+      const De = X("\uE18E", "Delete", n.danger);
       (De.addEventListener("click", () => {
         (_u($.id), r === $.id && c(), t.flashToast("Shortcut removed"), D());
       }),
@@ -32240,8 +32240,16 @@ function Po(o) {
       pointerEvents: "none",
     }),
     document.body.appendChild(i));
+  // Set once a field is saved from this view. Lightning keeps showing its
+  // cached copy of the record afterwards, so closing the view reloads the
+  // page when it is this record's page.
+  let savedAny = !1;
   const s = () => {
       (document.removeEventListener("keydown", a, !0), i.remove());
+      savedAny &&
+        o &&
+        window.location.pathname.includes(String(o).slice(0, 15)) &&
+        window.location.reload();
     },
     a = ($) => {
       $.key === "Escape" && ($.preventDefault(), $.stopPropagation(), s());
@@ -32279,7 +32287,7 @@ function Po(o) {
     overflow: "hidden",
     pointerEvents: "auto",
     zIndex: "2",
-    fontFamily: "Inter, system-ui, sans-serif",
+    fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
   }),
     i.appendChild(d));
   const y = document.createElement("div");
@@ -32479,7 +32487,7 @@ function Po(o) {
             (u.style.display = "inline-block"),
             Ut({
               kind: "record",
-              icon: "🗂️",
+              icon: "\uE33F",
               title: String(Z.recordName || Z.objectLabel),
               subtitle: `${Z.objectLabel}`,
               meta: "Record",
@@ -32761,7 +32769,12 @@ function Po(o) {
                           ((w.disabled = !1),
                             (w.textContent = "Save"),
                             oe?.success
-                              ? ((ue = Y), ot("Field updated"), z())
+                              ? // be.value too: the table is rebuilt from it when filtering.
+                                ((be.value = Y),
+                                (ue = Y),
+                                (savedAny = !0),
+                                ot("Field updated"),
+                                z())
                               : ((p.textContent = oe?.error || "Save failed"),
                                 (p.style.display = "block")));
                         },
@@ -33306,13 +33319,13 @@ function Uu(o, t, e) {
       i.appendChild(b));
   };
   let y = "https://help.salesforce.com/s/releasenotes";
-  (d("📖", "Release Notes", "New features & changes", () =>
+  (d("\uE05F", "Release Notes", "New features & changes", () =>
     window.open(y, "_blank"),
   ),
-    d("⚙️", "Release Updates", "Pending updates in your org (Setup)", () => {
+    d("\uE154", "Release Updates", "Pending updates in your org (Setup)", () => {
       window.open(`${bt()}/lightning/setup/ReleaseUpdates/home`, "_blank");
     }),
-    d("🗓️", "Release Schedule", "Dates & maintenance windows", () =>
+    d("\uE2B9", "Release Schedule", "Dates & maintenance windows", () =>
       window.open(
         "https://www.salesforce.com/blog/salesforce-release-dates/",
         "_blank",
@@ -33476,7 +33489,7 @@ function renderBulkFieldCreator(container, isDark, onBack) {
   });
   container.appendChild(mainDiv);
 
-  const { head: header, right: headerRight } = Wo(e, "✨ Bulk Field Creator", onBack, "Object Manager");
+  const { head: header, right: headerRight } = Wo(e, "\uE412 Bulk Field Creator", onBack, "Object Manager");
   mainDiv.appendChild(header);
 
   const subLabel = $e("div", { fontSize: "12px", color: e.faint, fontWeight: "600" });
@@ -33554,7 +33567,7 @@ function renderBulkFieldCreator(container, isDark, onBack) {
           color: e.text
         });
 
-        rowBtn.appendChild($e("span", { fontSize: "16px" }, obj.IsCustomizable ? "🧱" : "📦"));
+        rowBtn.appendChild($e("span", { fontSize: "16px" }, obj.IsCustomizable ? "\uE4FA" : "\uE129"));
         rowBtn.appendChild($e("span", { fontSize: "13px", fontWeight: "700" }, obj.Label || obj.QualifiedApiName));
         rowBtn.appendChild($e("span", { fontSize: "12px", color: e.faint }, obj.QualifiedApiName));
 
@@ -33680,7 +33693,7 @@ function renderBulkFieldCreator(container, isDark, onBack) {
           else selectedFls.delete(target.id);
         });
         row.appendChild(cb);
-        row.appendChild(document.createTextNode(`${target.isProfile ? "👤" : "🔑"} ${target.label}`));
+        row.appendChild(document.createTextNode(`${target.isProfile ? "\uE19F" : "\uE4A3"} ${target.label}`));
 
         row.addEventListener("mouseover", () => { row.style.background = e.accentSoft; });
         row.addEventListener("mouseout", () => { row.style.background = "transparent"; });
@@ -33821,11 +33834,11 @@ function renderBulkFieldCreator(container, isDark, onBack) {
         });
 
         if (res?.success) {
-          statusSpan.textContent = "✅ Created";
+          statusSpan.textContent = "\uE226 Created";
           statusSpan.style.color = e.success;
           createdFields.push(`${objName}.${f["api name"]}`);
         } else {
-          statusSpan.textContent = `❌ ${res?.error || "Error"}`;
+          statusSpan.textContent = `\uE084 ${res?.error || "Error"}`;
           statusSpan.style.color = e.danger;
         }
       }
@@ -33855,14 +33868,14 @@ function renderBulkFieldCreator(container, isDark, onBack) {
         });
 
         if (flsRes?.success) {
-          banner.show(`✅ Successfully created ${createdFields.length} field(s) and granted FLS.`, "success");
+          banner.show(`\uE226 Successfully created ${createdFields.length} field(s) and granted FLS.`, "success");
         } else {
-          banner.show(`⚠ Fields created, but FLS grant failed: ${flsRes?.error}`, "warn");
+          banner.show(`\uE193 Fields created, but FLS grant failed: ${flsRes?.error}`, "warn");
         }
       } else if (createdFields.length > 0) {
-        banner.show(`✅ Successfully created ${createdFields.length} field(s) (no FLS selected).`, "success");
+        banner.show(`\uE226 Successfully created ${createdFields.length} field(s) (no FLS selected).`, "success");
       } else {
-        banner.show("❌ Failed to create any fields.", "error");
+        banner.show("\uE084 Failed to create any fields.", "error");
       }
 
       deployBtn.disabled = false;
@@ -33888,7 +33901,7 @@ function renderObjectDetails(container, isDark, onBack) {
   });
   container.appendChild(mainDiv);
 
-  const { head: header } = Wo(e, "📦 Object Details", onBack, "Tools");
+  const { head: header } = Wo(e, "\uE129 Object Details", onBack, "Tools");
   mainDiv.appendChild(header);
 
   const body = $e("div", {
@@ -34219,7 +34232,7 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
   });
   container.appendChild(mainDiv);
 
-  const { head: header } = Wo(e, "🤖 AI Code Editor", onBack, "Tools");
+  const { head: header } = Wo(e, "\uE1BB AI Code Editor", onBack, "Tools");
   mainDiv.appendChild(header);
 
   const layout = $e("div", {
@@ -34290,7 +34303,7 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
     cursor: "pointer",
     opacity: "0.5",
     disabled: true
-  }, "💾 Save to Org");
+  }, "\uE14D Save to Org");
   editorToolbar.appendChild(saveBtn);
 
   const formatBtn = $e("button", {
@@ -34302,7 +34315,7 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
     fontSize: "12px",
     fontWeight: "600",
     cursor: "pointer"
-  }, "✨ Format");
+  }, "\uE412 Format");
   editorToolbar.appendChild(formatBtn);
 
   const clearBtn = $e("button", {
@@ -34314,7 +34327,7 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
     fontSize: "12px",
     fontWeight: "600",
     cursor: "pointer"
-  }, "🗑 Clear");
+  }, "\uE18E Clear");
   editorToolbar.appendChild(clearBtn);
 
   // Show/Hide AI Toggle Button
@@ -34328,14 +34341,14 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
     fontWeight: "600",
     cursor: "pointer",
     marginLeft: "auto"
-  }, "🤖 Show AI");
+  }, "\uE1BB Show AI");
   editorToolbar.appendChild(toggleAiBtn);
 
   let aiVisible = false;
   toggleAiBtn.addEventListener("click", () => {
     aiVisible = !aiVisible;
     rightCol.style.display = aiVisible ? "flex" : "none";
-    toggleAiBtn.textContent = aiVisible ? "🤖 Hide AI" : "🤖 Show AI";
+    toggleAiBtn.textContent = aiVisible ? "\uE1BB Hide AI" : "\uE1BB Show AI";
     if (monacoEditor) {
       setTimeout(() => monacoEditor.layout(), 50);
     }
@@ -34628,7 +34641,7 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
         },
         body: JSON.stringify({ Body: getCodeValue() })
       });
-      saveBtn.textContent = "💾 Save to Org";
+      saveBtn.textContent = "\uE14D Save to Org";
       saveBtn.disabled = false;
       if (res.ok) {
         outputContainer.textContent = "Saved successfully! Compiled in org.";
@@ -34643,7 +34656,7 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
         }
       }
     } catch (err) {
-      saveBtn.textContent = "💾 Save to Org";
+      saveBtn.textContent = "\uE14D Save to Org";
       saveBtn.disabled = false;
       outputContainer.textContent = "Save failed: " + err.message;
     }
@@ -34675,7 +34688,7 @@ function renderAICodeEditor(container, isDark, onBack, executeApex, renderAnalyz
     const provider = AI_PROVIDERS[globalPrefs.aiProvider] ? globalPrefs.aiProvider : "gemini";
     const providerName = AI_PROVIDERS[provider].name;
     if (!globalPrefs[AI_PROVIDERS[provider].prefKey]) {
-      chatBox.innerHTML = `<div style="color:${e.danger};font-weight:700">${providerName} API Key is not configured. Please go to Settings (☁️ Salesforce) and add your key first!</div>`;
+      chatBox.innerHTML = `<div style="color:${e.danger};font-weight:700">${providerName} API Key is not configured. Please go to Settings (\uE088 Salesforce) and add your key first!</div>`;
       return;
     }
 
@@ -35592,7 +35605,7 @@ function Ku(o, t, e, n) {
     (re.style.opacity = se.style.opacity = "0.5"));
   const selectedRecordIds = new Set();
   const deleteBtn = document.createElement("button");
-  (deleteBtn.textContent = "🗑 Bulk Delete"),
+  (deleteBtn.textContent = "\uE18E Bulk Delete"),
     Object.assign(deleteBtn.style, {
       fontSize: "13px",
       fontWeight: "700",
@@ -35608,7 +35621,7 @@ function Ku(o, t, e, n) {
   const updateDeleteBtnState = () => {
     if (selectedRecordIds.size > 0) {
       deleteBtn.style.display = "inline-block";
-      deleteBtn.textContent = `🗑 Delete Selected (${selectedRecordIds.size})`;
+      deleteBtn.textContent = `\uE18E Delete Selected (${selectedRecordIds.size})`;
     } else {
       deleteBtn.style.display = "none";
     }
@@ -36013,7 +36026,7 @@ function Ku(o, t, e, n) {
           boxShadow: "0 14px 36px rgba(0,0,0,0.3)",
           padding: "6px",
           zIndex: "2147483649",
-          fontFamily: "Inter, system-ui, sans-serif",
+          fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
         }));
       const R = () => {
           (v.remove(), document.removeEventListener("click", ne, !0));
@@ -36099,7 +36112,7 @@ function Ku(o, t, e, n) {
         color: i.textPrimary,
       });
       const title = document.createElement("div");
-      ((title.textContent = "💡 Suggested fix"),
+      ((title.textContent = "\uE1C2 Suggested fix"),
         Object.assign(title.style, { fontWeight: "800", marginBottom: "6px" }),
         box.appendChild(title));
       const list = document.createElement("ul");
@@ -36392,7 +36405,7 @@ function Ku(o, t, e, n) {
           boxShadow: "0 18px 45px rgba(0,0,0,0.35)",
           padding: "6px",
           zIndex: "2147483649",
-          fontFamily: "Inter, system-ui, sans-serif",
+          fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
         }));
       const R = () => {
           (v.remove(),
@@ -37974,7 +37987,7 @@ function Xu(o, t, e, n) {
   }),
     (tplHead.innerHTML = `<span style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:${i.textFaint}">Templates</span>`));
   const tplSave = document.createElement("button");
-  ((tplSave.textContent = "💾 Save as template"),
+  ((tplSave.textContent = "\uE14D Save as template"),
     Object.assign(tplSave.style, {
       fontSize: "12px",
       fontWeight: "700",
@@ -38355,7 +38368,7 @@ function Wa(o) {
   ) {
     const f = document.createElement("button");
     ((f.title = "Settings"),
-      (f.textContent = "⚙"),
+      (f.textContent = "\uE154"),
       Object.assign(f.style, {
         marginLeft: "6px",
         padding: "8px",
@@ -38839,7 +38852,7 @@ function Wa(o) {
         {
           label: "View all fields",
           short: "Fields",
-          icon: "🗂️",
+          icon: "\uE33F",
           onClick: () => Po(f.id),
         },
         {
@@ -38869,7 +38882,7 @@ function Wa(o) {
         {
           label: "Disable debug mode",
           short: "Debug Off",
-          icon: "🚫",
+          icon: "\uE0BB",
           onClick: () => _(!1),
         },
       ];
@@ -38893,7 +38906,7 @@ function Wa(o) {
           boxShadow: "0 18px 45px rgba(0,0,0,0.35)",
           padding: "6px",
           zIndex: "2147483649",
-          fontFamily: "Inter, system-ui, sans-serif",
+          fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
           fontSize: "13px",
         }));
       const R = K(_),
@@ -40006,7 +40019,7 @@ function Wa(o) {
           .sort((B, xe) => B.r - xe.r)
           .slice(0, 5)
           .map(({ l: B }) => ({
-            icon: "🔗",
+            icon: "\uE102",
             title: B.label,
             subtitle: B.section,
             url: B.isExternal ? B.link : `${bt()}${B.link}`,
@@ -40023,7 +40036,7 @@ function Wa(o) {
             )
             .slice(0, 4)
             .map((B) => ({
-              icon: "🔖",
+              icon: "\uE060",
               title: B.label,
               subtitle: "Custom Shortcut",
               url: vi(B.url),
@@ -40122,7 +40135,7 @@ function Wa(o) {
                 He.style.background = "";
               }));
             const he = document.createElement("span");
-            ((he.textContent = "👤"),
+            ((he.textContent = "\uE19F"),
               Object.assign(he.style, { fontSize: "16px", flexShrink: "0" }));
             const Pe = document.createElement("div");
             (Object.assign(Pe.style, { flex: "1", minWidth: "0" }),
@@ -40231,7 +40244,7 @@ function Wa(o) {
           ie = W ? `${W} · ${_}` : _;
         (C.appendChild(
           M({
-            icon: "🔗",
+            icon: "\uE102",
             title: "Open record",
             subtitle: ie,
             meta: "Record",
@@ -40240,7 +40253,7 @@ function Wa(o) {
               const I = `${bt()}/${_}`;
               (Ut({
                 kind: "record",
-                icon: "🔗",
+                icon: "\uE102",
                 title: W ? `${W} record` : "Record",
                 subtitle: _,
                 meta: "Record",
@@ -40253,7 +40266,7 @@ function Wa(o) {
         ),
           C.appendChild(
             M({
-              icon: "🗂️",
+              icon: "\uE33F",
               title: "View all fields",
               subtitle: "Every field, value and type you can access",
               meta: "Detail",
@@ -40362,7 +40375,7 @@ function Wa(o) {
           },
           v = (R, ne) =>
             M({
-              icon: R.icon || "🕘",
+              icon: R.icon || "\uE1F5",
               title: R.title,
               subtitle: R.subtitle,
               meta: R.meta,
@@ -40455,14 +40468,14 @@ function Wa(o) {
           const ne = vi(v.url),
             B = {
               kind: "shortcut",
-              icon: "🔖",
+              icon: "\uE060",
               title: v.label,
               subtitle: "Custom Shortcut",
               url: ne,
             };
           h.appendChild(
             M({
-              icon: "🔖",
+              icon: "\uE060",
               title: v.label,
               subtitle: "Custom Shortcut",
               meta: v.url,
@@ -40479,13 +40492,13 @@ function Wa(o) {
               B = v.isExternal ? v.link : `${bt()}${v.link}`,
               xe = {
                 kind: "setup",
-                icon: "🔗",
+                icon: "\uE102",
                 title: v.label,
                 subtitle: v.section,
                 url: B,
               },
               ze = M({
-                icon: "🔗",
+                icon: "\uE102",
                 title: v.label,
                 subtitle: v.section,
                 meta: v.link,
@@ -41049,7 +41062,7 @@ function Wa(o) {
                 alignItems: "center",
                 gap: "4px",
               });
-              pBadge.innerHTML = `<span style="font-size:12px">👤</span> Profile: <span style="font-weight:700">${h.profile}</span>`;
+              pBadge.innerHTML = `<span style="font-size:12px">\uE19F</span> Profile: <span style="font-weight:700">${h.profile}</span>`;
               metaWrap.appendChild(pBadge);
             }
             if (h.role) {
@@ -41066,7 +41079,7 @@ function Wa(o) {
                 alignItems: "center",
                 gap: "4px",
               });
-              rBadge.innerHTML = `<span style="font-size:12px">💼</span> Role: <span style="font-weight:700">${h.role}</span>`;
+              rBadge.innerHTML = `<span style="font-size:12px">\uE062</span> Role: <span style="font-weight:700">${h.role}</span>`;
               metaWrap.appendChild(rBadge);
             }
             ne.appendChild(metaWrap);
@@ -41273,7 +41286,7 @@ function Wa(o) {
           return;
         }
         const ie = (h) =>
-            h === "Profile" ? "👤" : h === "Permission Set Group" ? "🗂️" : "🔑",
+            h === "Profile" ? "\uE19F" : h === "Permission Set Group" ? "\uE33F" : "\uE4A3",
           I = document.createElement("div");
         (W.forEach((h, v) => {
           const R = bt();
@@ -41705,8 +41718,8 @@ function Wa(o) {
                 }),
                 Dn.appendChild(ln),
                 Dn.appendChild(Ye("↗", "Open in new tab", () => Ue(St.Id))),
-                Dn.appendChild(Ye("📄", "Copy log body", () => Ce(St.Id))),
-                Dn.appendChild(Ye("⬇", "Download", () => ce(St.Id))),
+                Dn.appendChild(Ye("\uE0CC", "Copy log body", () => Ce(St.Id))),
+                Dn.appendChild(Ye("\uE042", "Download", () => ce(St.Id))),
                 bn.appendChild(Dn),
                 Qi.appendChild(bn));
             }),
@@ -41717,9 +41730,9 @@ function Wa(o) {
           wt = document.createElement("button");
         ((wt.textContent = "↻"), (wt.title = "Refresh"));
         const yt = document.createElement("button");
-        ((yt.textContent = "🗑"), (yt.title = "Delete selected"));
+        ((yt.textContent = "\uE18E"), (yt.title = "Delete selected"));
         const Ke = document.createElement("button");
-        Ke.textContent = "Download Selected ⬇";
+        Ke.textContent = "Download Selected \uE042";
         const at = document.createElement("span");
         Object.assign(at.style, {
           marginLeft: "auto",
@@ -41908,7 +41921,7 @@ function Wa(o) {
             ne = ie(h.url, R),
             B = {
               kind: "app",
-              icon: R ? "🚀" : "📑",
+              icon: R ? "\uE286" : "\uE0CF",
               title: h.label || h.name,
               subtitle: h.name && h.name !== h.label ? h.name : void 0,
               meta: R ? "App" : "Tab",
@@ -41916,7 +41929,7 @@ function Wa(o) {
             };
           I.appendChild(
             M({
-              icon: R ? "🚀" : "📑",
+              icon: R ? "\uE286" : "\uE0CF",
               title: h.label || h.name,
               subtitle: h.name && h.name !== h.label ? h.name : void 0,
               meta: R ? "App" : "Tab",
@@ -42019,11 +42032,11 @@ function Wa(o) {
             return;
           }
           if (x === "apiusage") {
-            Us(C, he, Pe, { title: "📊  API Usage", fields: m });
+            Us(C, he, Pe, { title: "\uE2A3  API Usage", fields: m });
             return;
           }
           if (x === "storage") {
-            Us(C, he, Pe, { title: "💾  Storage Insights", fields: W });
+            Us(C, he, Pe, { title: "\uE14D  Storage Insights", fields: W });
             return;
           }
           const Ue = (Ce) =>
@@ -43170,7 +43183,7 @@ function Wa(o) {
           boxShadow: "0 18px 45px rgba(0,0,0,0.35)",
           padding: "6px",
           zIndex: "2147483649",
-          fontFamily: "Inter, system-ui, sans-serif",
+          fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
           fontSize: "13px",
         }));
       const R = () => {
@@ -43242,7 +43255,7 @@ function Wa(o) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontFamily: "Inter, system-ui, sans-serif",
+        fontFamily: "'SFPilot Icons', Inter, system-ui, sans-serif",
       });
       const W = document.createElement("div");
       Object.assign(W.style, {
@@ -43553,7 +43566,7 @@ function Wa(o) {
             (fe[v.kind === "tool" ? `tool:${v.id}` : v.id] = ne),
             k.appendChild(ne));
         });
-        const h = Te("Settings", "⚙");
+        const h = Te("Settings", "\uE154");
         ((h.title = "Settings"),
           (h.style.marginTop = "auto"),
           Ve(h, c === "__settings"),
@@ -43655,7 +43668,7 @@ function Wa(o) {
           I.addEventListener("click", F),
           k.appendChild(I));
       }
-      const ie = Te("Settings", "⚙");
+      const ie = Te("Settings", "\uE154");
       if (((ie.title = "Settings"), e)) ie.style.marginTop = "auto";
       else {
         ie.style.marginLeft = "4px";
@@ -44383,7 +44396,7 @@ function injectFlowToolsMenu() {
     zIndex: "999999",
     minWidth: "160px",
     display: "none",
-    fontFamily: "sans-serif"
+    fontFamily: "'SFPilot Icons', sans-serif"
   });
 
   const menuList = document.createElement('ul');
@@ -44554,6 +44567,9 @@ function initOrgFaviconAndTitleCustomizer() {
   // Update or inject link rel="icon"
   function setFavicon(dataUrl) {
     if (!dataUrl) return;
+    // Navigator's per-org tab color (navigator/src/content/orgFavicon.js) is
+    // set for this org: leave the tab icon to it instead of fighting over it.
+    if (document.querySelector("link[data-nv-favicon]")) return;
     try {
       const existingIcons = document.querySelectorAll("link[rel*='icon']");
       let iconLink = document.querySelector("link[data-sf-spotlight-favicon='true']");
@@ -44682,7 +44698,33 @@ function initOrgFaviconAndTitleCustomizer() {
   setTimeout(applyOrgBrand, 1200);
 }
 
+// SFPilot line icons: icons/sfpilot-icons.woff2 is a subset of Lucide (ISC,
+// see icons/LUCIDE-LICENSE.txt) that draws the private-use characters
+// standing in for icons across the UI. unicode-range keeps it to those
+// characters, so it never changes how ordinary text looks. Panels and popups
+// that inherit the Salesforce page's font get the icons through the first
+// family of Lightning's stacks, which never draws ordinary text here:
+// "Salesforce Sans" is Salesforce's own web font (this face only extends
+// it), and "-apple-system" isn't installed on Windows, while on a Mac text
+// falls through to BlinkMacSystemFont, the same system font.
+function injectSfpIconFont() {
+  if (document.getElementById("sfp-icon-font")) return;
+  let url = "";
+  try {
+    url = globalThis.chrome?.runtime?.getURL?.("icons/sfpilot-icons.woff2") || "";
+  } catch {}
+  if (!url) return;
+  const face = (family) =>
+    `@font-face{font-family:"${family}";src:url("${url}") format("woff2");` +
+    "unicode-range:U+E000-F8FF;font-display:block;}";
+  const style = document.createElement("style");
+  style.id = "sfp-icon-font";
+  style.textContent = face("SFPilot Icons") + face("Salesforce Sans") + face("-apple-system");
+  (document.head || document.documentElement).appendChild(style);
+}
+
 function zs() {
+  injectSfpIconFont();
   pn
     ? Zu()
     : (Ju(),

@@ -20,6 +20,25 @@
       "128": "icons/Spotlite-Icon-128.png"
     }
   },
+  "options_page": "navigator/settings.html",
+  "commands": {
+    "open_navigator": {
+      "suggested_key": { "default": "Alt+N", "mac": "Alt+N" },
+      "description": "Open the Navigator popup (orgs, bookmarks, objects)"
+    },
+    "open_command_palette": {
+      "suggested_key": { "default": "Alt+K", "mac": "Alt+K" },
+      "description": "Open the Navigator command palette"
+    },
+    "navigate_to_setup": {
+      "suggested_key": { "default": "Alt+Shift+S", "mac": "Alt+Shift+S" },
+      "description": "Go to Salesforce Setup"
+    },
+    "navigate_to_home": {
+      "suggested_key": { "default": "Alt+A", "mac": "Alt+A" },
+      "description": "Go to the current app's Salesforce Home"
+    }
+  },
   "permissions": [
     "activeTab",
     "storage",
@@ -101,11 +120,33 @@
       ],
       "js": ["content-ui.js", "ai-agent.js"],
       "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "https://*.force.com/*",
+        "https://*.my.salesforce.com/*",
+        "https://*.my.salesforce-setup.com/*"
+      ],
+      "js": [
+        "navigator/src/shared/sfUrl.js",
+        "navigator/src/shared/settings.js",
+        "navigator/src/shared/orgs.js",
+        "navigator/src/shared/orgColors.js",
+        "navigator/src/content/orgFavicon.js",
+        "navigator/src/content/contentSetup.js",
+        "navigator/src/content/headerButton.js",
+        "navigator/src/shared/setupPages.js",
+        "navigator/src/shared/recents.js",
+        "navigator/src/content/commandPalette.data.js",
+        "navigator/src/content/commandPalette.js"
+      ],
+      "css": ["navigator/styles/setupStyle.css"],
+      "run_at": "document_end"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["index.html", "sfpilot.html", "chunks/*", "*.js", "*.css", "assets/*", "icons/*"],
+      "resources": ["index.html", "sfpilot.html", "chunks/*", "*.js", "*.css", "assets/*", "icons/*", "navigator/images/*", "navigator/fonts/*"],
       "matches": [
         "https://*.salesforce.com/*",
         "https://*.salesforce-setup.com/*",
@@ -125,7 +166,7 @@
         "https://*.crmforce.mil/*",
         "https://*.lightning.force.com.mcas.ms/*",
         "https://*.force.com/*",
-        "https://*.builder.salesforce-experience.com/*" 
+        "https://*.builder.salesforce-experience.com/*"
       ]
     }
   ],
